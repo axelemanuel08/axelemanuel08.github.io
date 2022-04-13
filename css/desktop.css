@@ -65,7 +65,7 @@ body {
     width: 80%;
 }
 
-.primaryButton {
+.primary-button {
     height: min-content;
     width: max-content;
     margin-top: 100px;
@@ -76,13 +76,13 @@ body {
     border-radius: 10px;
 }
 
-.welcome .primaryButton:hover {
+.welcome .primary-button:hover {
     background-color: grey;
     color: white;
     border: 2px solid white;
 }
 
-.welcome .primaryButton:active {
+.welcome .primary-button:active {
     background-color: white;
     color: black;
     border: 2px solid white;
@@ -104,7 +104,7 @@ body {
     height: 10%;
 }
 
-.proyects .proyectsDisplay {
+.proyects .proyects-display {
     display: grid;
     width: 100%;
     padding: 20px;
@@ -113,7 +113,7 @@ body {
     gap: 20px;
 }
 
-.proyects .proyectsDisplay .proyectElement{
+.proyects .proyects-display .proyect-element{
     background-color: grey;
 }
 
