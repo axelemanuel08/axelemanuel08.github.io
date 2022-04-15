@@ -2,6 +2,7 @@
     --primary-color: #000000;
     --secondary-color: #ffffff;
     --terciary-color: grey;
+
 }
 * {
     box-sizing: border-box;
@@ -96,12 +97,11 @@ body {
 
 .welcome .secondary-button{
     position: absolute;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     bottom: 10%;
     right: 10%;
-    box-shadow: 1px 1px 10wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwpx 0 #ffffff;
 }
 
 .proyects {

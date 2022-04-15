@@ -1,3 +1,8 @@
+:root {
+    --primary-color: #000000;
+    --secondary-color: #ffffff;
+    --terciary-color: grey;
+}
 * {
     box-sizing: border-box;
     margin: 0;
@@ -23,14 +28,14 @@ body {
 
 .header {
     grid-area: header;
-    background-color: white;
+    background-color: var(--secondary-color);
     display: flex;
     justify-content: right;
 }
 
 .navbar {
     display: flex;
-    background-color: grey;
+    background-color: var(--terciary-color);
     height: 100%;
     width: 50%;
 }
@@ -42,7 +47,7 @@ body {
 
 .main {
     grid-area: main;
-    background-color: black;
+    background-color: var(--primary-color);
 }
 
 .welcome {
@@ -52,6 +57,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
 }
 
 .welcome h1 {
@@ -70,28 +76,37 @@ body {
     width: max-content;
     margin-top: 100px;
     padding: 10px 20px;
-    background-color: black;
+    background-color: var(--primary-color);
     color: white;
     border: 2px solid white;
     border-radius: 10px;
 }
 
 .welcome .primary-button:hover {
-    background-color: grey;
+    background-color: var(--terciary-color);
     color: white;
     border: 2px solid white;
 }
 
 .welcome .primary-button:active {
-    background-color: white;
+    background-color: var(--secondary-color);
     color: black;
     border: 2px solid white;
+}
+
+.welcome .secondary-button{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    bottom: 10%;
+    right: 10%;
 }
 
 .proyects {
     width: 100%;
     height: 90vh;
-    background-color: white;
+    background-color: var(--secondary-color);
     color: black;
     display: flex;
     justify-content: center;
