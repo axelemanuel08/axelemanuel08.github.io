@@ -22,34 +22,28 @@ body {
     min-height: 100%;
     display: grid;
     grid-template:
-    "header" 5vh
-    "main" auto
-    "footer" 10vh / 100%;
+    "navbar header" 100vh
+    "main main" auto
+    "footer footer" 10vh / 5vw 95vw;
+}
+
+.navbar {
+    grid-area: navbar;
+    display: flex;
+    background-color: var(--terciary-color);
+    height: 100%;
+    width: 100%;
 }
 
 .header {
     grid-area: header;
-    background-color: var(--secondary-color);
-    display: flex;
-    justify-content: right;
-}
-
-.navbar {
-    display: flex;
-    background-color: var(--terciary-color);
-    height: 100%;
-    width: 50%;
-}
-
-.socials-item1{
-    width: 20px;
-    height: 20px;
+    background-color: var(--primary-color);
 }
 
 .main {
     grid-area: main;
-    background-color: var(--primary-color);
 }
+
 
 .welcome {
     width: 100%;
