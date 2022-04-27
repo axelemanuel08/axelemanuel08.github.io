@@ -4,32 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link media="(max-width: 500px)" rel="stylesheet" href="./css/style.css">
-    <link media="(max-width: 768px)" rel="stylesheet" href="./css/tablet.css">
+    <link media="(max-width: 480px)" rel="stylesheet" href="./css/style.css">
+    <link media="(min-width: 481px) and (max-width: 768px)" rel="stylesheet" href="./css/tablet.css">
     <link media="(min-width: 769px)" rel="stylesheet" href="./css/desktop.css">
     <title>Axel</title>
 </head>
 <body>
     <header class="header">
-        <div class="logo"></div>
-        <section class="welcome">            
-            <h1>Axel Emanuel</h1>
-            <p>Hola! :)</p> 
-            <button class="primary-button aboutme-button">Acerca de mi</button>
-            <!--<button class="secondary-button scroll-button">=></button>-->
-        </section>
+        <div class="logo"><p>Logo</p></div>
+        <nav class="navbar">
+            <ul class="menu">
+                <li class="menu-item item1">
+                    <a href="#">Ico1</a>
+                    <ul class="submenu1">
+                        <li class="submenu1-item subitem1"><a href="#">Item1</a></li>
+                        <li class="submenu1-item subitem2"><a href="#">Item2</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item item2"><a href="#">Ico2</a>
+                </li>
+                <li class="menu-item item3"><a href="#">Ico3</a></li>
+            </ul>
+        </nav> 
     </header>
-    <nav class="navbar">
-        <ul class="navbar-socials">
-            <li class="socials-item social-item1">
-            </li>
-            <li class="socials-item social-item2">
-            </li>
-            <li class="socials-item social-item3"></li>
-        </ul>
-    </nav>
     <main class="main">
-        <section class="proyects">
+        <section class="index">
+            <article class="welcome">
+                <h1>Axel Emanuel</h1>
+                <p>Hola! :)</p> 
+                <button class="primary-button aboutme-button">Acerca de mi</button>
+            </article>          
+        </section>
+        <!--<section class="proyects">
             <h2>Portfolio:
             </h2>
             <div class="proyects-display">
@@ -46,7 +52,7 @@
                     <p>Proyecto 4</p>
                 </div>
             </div>    
-        </section>
+        </section>-->
     </main>
     <footer class="footer">
         <p class="about-it">Para mas informacion acerca de este sitio web haz click <a href="#">aqui</a>.</p>

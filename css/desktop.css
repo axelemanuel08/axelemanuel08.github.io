@@ -1,8 +1,10 @@
 :root {
-    --primary-color: #000000;
-    --secondary-color: #ffffff;
-    --terciary-color: grey;
+    --primary-color: #64FAB3;
+    --secondary-color: #59DEC4;
+    --terciary-color: #6EEAF5;
+    --cuaternary-color: #59B0DE;
 }
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -21,30 +23,114 @@ body {
     min-height: 100%;
     display: grid;
     grid-template:
-    "navbar header" 100vh
-    "main main" auto
+    "header main" 90vh
     "footer footer" 10vh /
     5vw 95vw;
 }
 
 .header {
     grid-area: header;
-    background-color: var(--primary-color);
-    display: grid;
+    display: inline-grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 25% 75%;
 }
 
-.navbar {
-    grid-area: navbar;
+.header .logo {
+    background-color: var(--primary-color);
     display: flex;
-    background-color: var(--terciary-color);
+    justify-content: center;
+    align-items: center;
+}
+
+.header .logo p{
+    display: block;
+    background-color: var(--secondary-color);
+    height: 30px;
+    width: 30px;
+}
+
+.header .navbar {
+    background-color: var(--primary-color);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar{
+    display: flex;
     height: 100%;
     width: 100%;
 }
 
-.main {
-    grid-area: main;
+.navbar ul {
+    list-style: none;
 }
 
+.navbar .menu {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;  
+    justify-content: space-around;  
+}
+
+.menu a {
+    display: block;
+    padding: 20px 10px;
+    text-decoration: none;
+}
+
+.menu > li {
+    position: relative;
+    display: inline-block;
+}
+
+.navbar .menu .menu-item{
+    background-color: var(--primary-color);
+}
+
+.navbar .menu a:hover{
+    background-color: var(--secondary-color);
+    transition: all 1s;
+}
+
+.navbar .menu a:active{
+    color: #ffffff;
+}
+
+.menu li .submenu1{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display:none;
+}
+
+.submenu1 .submenu1-item{
+    background-color: var(--primary-color);
+}
+
+.menu .item1:hover .submenu1 {
+    display: block;
+}
+
+.main {
+    grid-area: main;
+    background-color: var(--secondary-color);
+    position: relative;
+}
+
+.index {
+    position: absolute;
+    display: none;
+}
+
+.menu .submenu1 .subitem1 a:active {
+   background-color: yellow;
+}
+
+/*
 .welcome {
     width: 100%;
     height: 95vh;
@@ -52,7 +138,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    position: relative;
+    position: absolute;
 }
 
 .welcome h1 {
@@ -89,16 +175,8 @@ body {
     border: 2px solid white;
 }
 
-.welcome .secondary-button{
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    bottom: 10%;
-    right: 10%;
-    box-shadow: 1px 1px 10px 0 #ffffff;
-}
-
+*/
+/*
 .proyects {
     width: 100%;
     height: 90vh;
@@ -129,6 +207,7 @@ body {
 .proyects .proyects-display .proyect-element{
     background-color: grey;
 }
+*/
 
 .footer {
     grid-area: footer;
@@ -145,5 +224,5 @@ body {
 
 .footer p a {
     text-decoration: none;
-    color:red;
+    color:yellow;
 }

@@ -1,7 +1,8 @@
 :root {
-    --primary-color: #000000;
-    --secondary-color: #ffffff;
-    --terciary-color: grey;
+    --primary-color: #64FAB3;
+    --secondary-color: #59DEC4;
+    --terciary-color: #6EEAF5;
+    --cuaternary-color: #59B0DE;
 }
 
 * {
@@ -22,31 +23,81 @@ body {
     min-height: 100%;
     display: grid;
     grid-template:
-    "navbar" 5vh
-    "header" 95vh
+    "header" 5vh
     "main" auto
-    "footer" 10vh / 100%;
+    "footer" 5vh / 100vw;
 }
 
-.navbar {
-    grid-area: navbar;
-    display: flex;
-    background-color: var(--terciary-color);
-    height: 100%;
-    width: 100%;
-}
 
 .header {
     grid-area: header;
-    background-color: var(--primary-color);
     display: flex;
-    justify-content: right;
+    background-color: var(--primary-color);
+    justify-content: space-between;
+}
+
+.logo {
+    height: 100%;
+    width: 50px;
+}
+
+.navbar {
+    display: flex;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar li {
+    height: 5vh;
+    width: 50px;
+    background-color: var(--primary-color);
+}
+
+.menu {
+    position: relative;
+}
+
+.menu .submenu1{
+    position: absolute;
+    display: none;
+}
+
+.menu li:active{
+    background-color: var(--secondary-color);
+    transition: all .2s;
+}
+
+.menu .item1:active .submenu1{
+    display: block;
+    transform: translate(0, 5vh);
 }
 
 .main {
     grid-area: main;
 }
 
+.footer {
+    grid-area: footer;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer p {
+    text-align: center;
+    width: 80%;
+}
+
+.footer p a {
+    text-decoration: none;
+    color:red;
+}
+
+/*
 .welcome {
     width: 100%;
     height: 95vh;
@@ -132,20 +183,3 @@ body {
     background-color: grey;
 }
 
-.footer {
-    grid-area: footer;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer p {
-    text-align: center;
-    width: 80%;
-}
-
-.footer p a {
-    text-decoration: none;
-    color:red;
-}
