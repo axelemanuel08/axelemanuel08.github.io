@@ -62,13 +62,14 @@ body {
     display: flex;
     height: 100%;
     width: 100%;
+    background-color: var(--primary-color);
 }
 
 .navbar ul {
     list-style: none;
 }
 
-.navbar .menu {
+.navbar ul {
     display: grid;
     height: 100%;
     width: 100%;
@@ -78,7 +79,7 @@ body {
 
 /*Hasta aca hago que el menu del navbar cree columnas proporcionales a la cantidad de objetos*/
 
-.menu > li { /* navbar ul li */
+.menu > .menu-item { /* navbar ul li */
     position: relative;
     display: flex;
     align-items: center;
@@ -91,7 +92,6 @@ body {
     background-color: var(--primary-color);
     transition: 1s;
     transition-delay: 200ms;
-    
 }
 
 /* Cualquier item dentro de una lista que este en el navbar se pintara del color*/
@@ -101,36 +101,34 @@ body {
     text-decoration: none;
 }
 
-.navbar .menu li:hover{
+/*sacar todas las decoraciones de a*/
+
+
+.navbar ul > li:hover{
     background-color: var(--secondary-color);
     transition: background-color 1s;
 }
 
 /*Transicion para todo item lista dentro de navbar hijo del menu*/
 
-.menu li > ul{
+.menu .menu-item > .submenu{
     position: absolute;
-    display: grid;
-    height: 100%;
-    width: 100%;
-    grid-template-columns: 100%;
-    grid-auto-rows: 1fr;
     opacity: 0;
     transform: translateX(100%);
-    transition: 1s;
+    transition: all 1s;
 }
 
 /* todas las listas dentro de un item de lista se acomodaran a su tamaño y proporcionaran un espacio igual para sus componentes*/
 
 /*la opacidad 0 evitara que se vea la primer animacion pero contribuira al efecto del un-hover*/
 
-.menu .item1:hover .submenu1 {
+.menu > .menu-item:hover .submenu {
     opacity: 1;
     transform: translateX(0);
-    transition: 1s;
+    transition: all 1s;
 }
 
-/*hover y se vera el menu 1 -esta seria la maqueta para los demas efectos-*/
+/*hover y se vera el submenu */
 
 .main {
     grid-area: main;
