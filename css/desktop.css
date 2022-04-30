@@ -69,51 +69,68 @@ body {
 }
 
 .navbar .menu {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     height: 100%;
-    width: 100%;  
-    justify-content: space-around;  
+    width: 100%;
+    grid-template-columns: 100%;
+    grid-auto-rows: 1fr;
 }
+
+/*Hasta aca hago que el menu del navbar cree columnas proporcionales a la cantidad de objetos*/
+
+.menu > li { /* navbar ul li */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Los hijos directos del menu seran los contenedores de referencia relative*/
+
+.navbar ul > li{
+    background-color: var(--primary-color);
+    transition: 1s;
+    transition-delay: 200ms;
+    
+}
+
+/* Cualquier item dentro de una lista que este en el navbar se pintara del color*/
 
 .menu a {
     display: block;
-    padding: 20px 10px;
     text-decoration: none;
 }
 
-.menu > li {
-    position: relative;
-    display: inline-block;
-}
-
-.navbar .menu .menu-item{
-    background-color: var(--primary-color);
-}
-
-.navbar .menu a:hover{
+.navbar .menu li:hover{
     background-color: var(--secondary-color);
-    transition: all 1s;
+    transition: background-color 1s;
 }
 
-.navbar .menu a:active{
-    color: #ffffff;
-}
+/*Transicion para todo item lista dentro de navbar hijo del menu*/
 
-.menu li .submenu1{
+.menu li > ul{
     position: absolute;
+    display: grid;
     height: 100%;
     width: 100%;
-    display:none;
+    grid-template-columns: 100%;
+    grid-auto-rows: 1fr;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: 1s;
 }
 
-.submenu1 .submenu1-item{
-    background-color: var(--primary-color);
-}
+/* todas las listas dentro de un item de lista se acomodaran a su tamaño y proporcionaran un espacio igual para sus componentes*/
+
+/*la opacidad 0 evitara que se vea la primer animacion pero contribuira al efecto del un-hover*/
 
 .menu .item1:hover .submenu1 {
-    display: block;
+    opacity: 1;
+    transform: translateX(0);
+    transition: 1s;
 }
+
+/*hover y se vera el menu 1 -esta seria la maqueta para los demas efectos-*/
 
 .main {
     grid-area: main;
@@ -121,14 +138,6 @@ body {
     position: relative;
 }
 
-.index {
-    position: absolute;
-    display: none;
-}
-
-.menu .submenu1 .subitem1 a:active {
-   background-color: yellow;
-}
 
 /*
 .welcome {
