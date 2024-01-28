@@ -1,0 +1,83 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+main {
+    width: 100%;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+h3 {
+    text-align: center;
+    color: #007bff;
+}
+
+article {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Estilo específico para los checkboxes usando Flexbox */
+input[type="checkbox"] {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#mensaje1, #mensaje2 {
+    display: block;
+    margin-top: 10px;
+    color: #d9534f;
+}
+
+/* Estilo específico para los input de tipo date */
+input[type="date"] {
+    width: calc(100% - 22px); /* Ajuste para el padding */
+    padding: 8px;
+}
+
+@media screen and (min-width: 600px) {
+    main {
+        max-width: 800px;
+    }
+}

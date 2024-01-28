@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Dias</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <main>
+        <section class="counterday">
+            <h3 id="contardias-title">Contar dias</h3>
+            <article>
+                <label id="arriving-label" for="arriving-date" >Fecha de Ingreso:</label>
+                <input type="date" id="arriving-date">
+            </article>
+            <article>
+                <label id="leaving-label" for="leaving-date" >Fecha de Salida:</label>
+                <input type="date" id="leaving-date">
+            </article>
+            <article>
+                <input type="checkbox" id="within" name="count-option">
+                <label id="within-label" for="within">Contar el dia de ingreso</label>
+            </article>
+            <button id="calculardias" type="button" onclick="onCountDays()">Calcular</button>
+            <span id="mensaje1"></span>
+        </section>
+        <section class="calculatedate">
+            <h3 id="calcularfecha-title">Calcular fecha</h3>
+            <article>
+                <label for="days" id="days-label">Cantidad de dias</label>
+                <input id="days" type="text">
+            </article>
+            <button id="calcularfecha" type="button" onclick="onCalculateDate()">Calcular</button>
+            <span id="mensaje2"></span>
+        </section>
+    </main>
+    <script src="index.js"></script>    
+</body>
+</html>
