@@ -50,6 +50,6 @@ const onCountDays = () => {
         if(countwi){
             differenceInDays++;
         }
-        message.textContent = "Diferencia en días:" + differenceInDays;
+        mensaje1.textContent = "Diferencia en días:" + differenceInDays;
     }
 }
