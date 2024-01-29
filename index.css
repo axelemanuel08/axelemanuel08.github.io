@@ -33,7 +33,7 @@ article {
 }
 
 label {
-    margin-bottom: 5px;
+    display: flex;
     font-weight: bold;
     color: #007bff;
 }
@@ -71,16 +71,13 @@ button:hover {
     color: #d9534f;
 }
 
-#within-label{
-    display: flex;
-    width: auto;
-}
-
 /* Estilo específico para los input de tipo date */
 input[type="date"] {
     width: calc(100% - 22px); /* Ajuste para el padding */
     padding: 8px;
 }
+
+
 
 @media screen and (min-width: 600px) {
     main {
@@ -110,3 +107,4 @@ input[type="date"] {
 @keyframes blink {
     50% { border-color: transparent;}
 }
+

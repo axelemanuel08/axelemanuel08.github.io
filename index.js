@@ -16,29 +16,29 @@ const onCalculateDate = () => {
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         const formattedDate = futureDate.toLocaleDateString('es-ES', options);
 
-        message.textContent = "La fecha de salida sería el: " + formattedDate;
+        message.textContent = "La fecha maxima de permanencia es el: " + formattedDate;
     }
 }
 
 const onCountDays = () => {
     console.log("Contando días");
     const countwi = document.getElementById("within").checked;
-    const date1 = document.getElementById("arriving-date").value;
-    const date2 = document.getElementById("leaving-date").value;
+    const date1node = document.getElementById("arriving-date").value;
+    const date2node = document.getElementById("leaving-date").value;
     const message = document.getElementById("mensaje1");
 
     // Convertir las cadenas de fecha a objetos Date
-    const date1Object = new Date(date1);
-    const date2Object = new Date(date2);
+    const date1 = new Date(date1node);
+    const date2 = new Date(date2node);
 
     // Verificar que las fechas sean válidas
-    if (isNaN(date1Object.getTime()) || isNaN(date2Object.getTime())) {
+    if (isNaN(date1.getTime()) || isNaN(date2.getTime())) {
         console.error("Al menos una de las fechas no es válida");
         return;
     }
 
     // Calcular la diferencia en milisegundos
-    const differenceInMilliseconds = date2Object.getTime() - date1Object.getTime();
+    const differenceInMilliseconds = date2.getTime() - date1.getTime();
 
     if(differenceInMilliseconds<1){
         console.log("Error al seleccionar las fechas")
@@ -50,6 +50,6 @@ const onCountDays = () => {
         if(countwi){
             differenceInDays++;
         }
-        mensaje1.textContent = "Diferencia en días:" + differenceInDays;
+        message.textContent = "Diferencia en días:" + differenceInDays;
     }
 }

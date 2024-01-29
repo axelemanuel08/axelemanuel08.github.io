@@ -19,8 +19,11 @@
                 <input type="date" id="leaving-date">
             </article>
             <article>
-                <input type="checkbox" id="within" name="count-option">
-                <label id="within-label" for="within">Contar el dia de ingreso</label>
+                <label class="within-label" for="within">
+                    <p>Contar el dia de ingreso</p>
+                    <input type="checkbox" class="within" name="count-option" onchange="onChangeStyle()">
+                    <span class="checkmark"></span>
+                </label>
             </article>
             <button id="calculardias" type="button" onclick="onCountDays()">Calcular</button>
             <span id="mensaje1"></span>
