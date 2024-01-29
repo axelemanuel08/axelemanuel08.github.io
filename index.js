@@ -25,7 +25,7 @@ const onCountDays = () => {
     const countwi = document.getElementById("within").checked;
     const date1node = document.getElementById("arriving-date").value;
     const date2node = document.getElementById("leaving-date").value;
-    const message1 = document.getElementById("mensaje1");
+    const message = document.getElementById("mensaje1");
 
     // Convertir las cadenas de fecha a objetos Date
     const date1 = new Date(date1node);
@@ -50,6 +50,6 @@ const onCountDays = () => {
         if(countwi){
             differenceInDays++;
         }
-        message1.textContent = "Diferencia en días:" + differenceInDays;
+        message.textContent = "Diferencia en días:" + differenceInDays;
     }
 }
