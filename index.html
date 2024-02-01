@@ -3,42 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contador de Dias</title>
-    <link rel="stylesheet" href="index.css">
+    <title>Herramientas</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+        }
+
+        input[type="button"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        input[type="button"]:hover {
+            background-color: #2980b9;
+        }
+
+        #sign {
+            display: block;
+            font-size: 12px;
+            font-family: monospace;
+            white-space: nowrap;
+            border-right: 4px solid;
+            width: 8ch;
+            animation: typing 2s steps(8), blink 0.5s infinite step-end alternate;
+            overflow: hidden;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+    </style>
 </head>
 <body>
-    <main>
-        <section class="counterday">
-            <h3 id="contardias-title">Contar dias</h3>
-            <article>
-                <label id="arriving-label" for="arriving-date" >Fecha de Ingreso:</label>
-                <input type="date" id="arriving-date">
-            </article>
-            <article>
-                <label id="leaving-label" for="leaving-date" >Fecha de Salida:</label>
-                <input type="date" id="leaving-date">
-            </article>
-            <article>
-                <label class="within-label" for="within">
-                    <p>Contar el dia de ingreso</p>
-                    <input type="checkbox" class="within" name="count-option" onchange="onChangeStyle()">
-                    <span class="checkmark"></span>
-                </label>
-            </article>
-            <button id="calculardias" type="button" onclick="onCountDays()">Calcular</button>
-            <span id="mensaje1"></span>
-        </section>
-        <section class="calculatedate">
-            <h3 id="calcularfecha-title">Calcular fecha</h3>
-            <article>
-                <label for="days" id="days-label">Cantidad de dias</label>
-                <input id="days" type="text">
-            </article>
-            <button id="calcularfecha" type="button" onclick="onCalculateDate()">Calcular</button>
-            <span id="mensaje2"></span>
-        </section>
-        <p id="sign">Desarrollado por LexA</P>
-    </main>
-    <script src="index.js"></script>    
+    <div>
+        <input type="button" value="Contar Días" onclick="window.location.href='./CalculadoraDeDias/index.html';">
+        <br> <!-- Añadido para separar los botones verticalmente -->
+        <input type="button" value="Ver Régimen" onclick="window.location.href='./buscarPais/index.html';">
+        <p id="sign">Ver <a href="https://github.com/axelemanuel23/axelemanuel23.github.io">Repo</a></P>
+    </div>
 </body>
 </html>

@@ -29,11 +29,11 @@ h3 {
 
 article {
     display: flex;
+    flex-direction: column;
     margin-bottom: 20px;
 }
 
 label {
-    display: flex;
     font-weight: bold;
     color: #007bff;
 }
@@ -59,6 +59,7 @@ button {
     background-color: #007bff;
     color: #fff;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
@@ -66,7 +67,6 @@ button:hover {
 }
 
 #mensaje1, #mensaje2 {
-    display: block;
     margin-top: 10px;
     color: #d9534f;
 }
@@ -77,34 +77,25 @@ input[type="date"] {
     padding: 8px;
 }
 
+input[type="button"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block; /* Añadido para corregir la alineación */
+    margin: 0 auto; /* Añadido para centrar el botón */
+}
 
+input[type="button"]:hover {
+    background-color: #555;
+}
 
 @media screen and (min-width: 600px) {
     main {
         max-width: 800px;
     }
 }
-
-#sign {
-    display: block;
-    font-size: 6px;
-    font-family: monospace;
-    white-space: nowrap;
-    border-right: 4px solid;
-    width: 21ch;
-
-    animation: typing 2s steps(21),
-    blink 0.5s infinite step-end alternate;
-    overflow: hidden;
-}
-
-@keyframes typing {
-    from {
-        width: 0
-    }
-}
-
-@keyframes blink {
-    50% { border-color: transparent;}
-}
-
