@@ -8,7 +8,7 @@
     const listaDePaises = [
       ["AFGANISTÁN", "AFG", "V","V","V"],
       ["ALBANIA", "ALB", "V", "-", "-"],
-      ["ALEMANIA (OCDE)", "BERLÍN", "-", "-", "-"],
+      ["ALEMANIA (OCDE)", "DEU", "-", "-", "-"],
       ["ANDORRA", "AND", "-", "-", "-"],
       ["ANGOLA", "AGO", "V", "-", "-"],
       ["ANTIGUA Y BARBUDA", "ATG", "V", "V", "V"],
@@ -232,12 +232,11 @@
   ["ZIMBABWE", "ZWE", "V", "V", "V"],
     ];
 
-    console.log(listaDePaises.length);
     const onChangeValue = () => {
       const search = input.value.trim().toLowerCase();
 
       // Verificar si la longitud del campo de búsqueda es mayor que 3
-    if (search.length > 3) {
+    if (search.length > 2) {
       // Realizar la búsqueda solo si hay más de tres caracteres
       value(search, listaDePaises);
       toggleElement(tabla, false);
