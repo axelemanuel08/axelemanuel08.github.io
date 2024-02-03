@@ -8,7 +8,7 @@
     const listaDePaises = [
       ["AFGANISTAN", "AFG", "V","V","V"],
       ["ALBANIA", "ALB", "V", "-", "-"],
-      ["ALEMANIA (OCDE)", "BERLÍN", "-", "-", "-"],
+      ["ALEMANIA (OCDE)", "DEU", "-", "-", "-"],
       ["ANDORRA", "AND", "-", "-", "-"],
       ["ANGOLA", "AGO", "V", "-", "-"],
       ["ANTIGUA Y BARBUDA", "ATG", "V", "V", "V"],
