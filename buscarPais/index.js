@@ -112,7 +112,7 @@
   ["JORDANIA", "JOR", "V", "V", "V"],
   ["KAZAJSTAN", "KAZ", "-/V", "-", "-"],
   ["KAZAJSTAN", "HASTA 90", "DIAS", "DIPLOMATICO", ""],
-  ["KAZAJSTAN", "30 CORRIDOS", "EN", "1", "AÑO"],
+  ["KAZAJSTAN", "30 DIAS", "INTERRUMPIBLES", "EN 1", "AÑO"],
   ["KENYA", "KEN", "V-AVE", "V", "V"],
   ["KIRGUISTAN", "KGZ", "V", "V", "V"],
   ["KIRIBATI", "KIR", "V-AVE", "V", "V"],
