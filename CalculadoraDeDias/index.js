@@ -4,7 +4,6 @@ const addDate = () => {
     const aditionalDate = document.getElementById("aditional-date");
     const labelDateIn = document.createElement("label");
     const labelDateOut = document.createElement("label");
-    labelDateIn.textContent("Fecha Ingreso:");
     
     const dateIn = document.createElement("input");
     dateIn.setAttribute("type", "date");
