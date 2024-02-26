@@ -2,10 +2,16 @@ console.log("JS CARGADO");
 const dates = 0;
 const addDate = () => {
     const aditionalDate = document.getElementById("aditional-date");
+    const labelDateIn = document.createElement("label");
+    const labelDateOut = document.createElement("label");
+    labelDateIn.textContent("Fecha Ingreso:");
+    
     const dateIn = document.createElement("input");
     dateIn.setAttribute("type", "date");
     const dateOut = document.createElement("input");
     dateOut.setAttribute("type", "date");
+    
+    aditionalDate.appendChild(labelDateIn);
     aditionalDate.appendChild(dateIn);
     aditionalDate.appendChild(dateOut);
     console.log("funcion ejecutada");
