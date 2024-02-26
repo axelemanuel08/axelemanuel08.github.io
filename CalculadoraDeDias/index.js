@@ -2,12 +2,13 @@ console.log("JS CARGADO");
 const dates = 0;
 const addDate = () => {
     const aditionalDate = document.getElementById("aditional-date");
-    const dateIn = createElement("button"):
+    const dateIn = document.createElement("button"):
     dateIn.setAttribute("type", "date");
-    const dateOut = createElement("button");
+    const dateOut = document.createElement("button");
     dateOut.setAttribute("type", "date");
     aditionalDate.appendChild(dateIn);
     aditionalDate.appendChild(dateOut);
+    console.log("funcion ejecutada");
 }
 
 const onCalculateDate = () => {
