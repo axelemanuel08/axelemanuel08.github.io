@@ -1,8 +1,13 @@
 console.log("JS CARGADO");
-
+const dates = 0;
 const addDate = () => {
     const aditionalDate = document.getElementById("aditional-date");
-    
+    const dateIn = createElement("inout"):
+    dateIn.setAttribute("type", "text");
+    const dateOut = createElement("input");
+    dateOut.setAttribute("type", "text");
+    aditionalDate.appendChild(dateIn);
+    aditionalDate.appendChild(dateOut);
 }
 
 const onCalculateDate = () => {
