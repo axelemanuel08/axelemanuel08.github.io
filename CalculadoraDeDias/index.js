@@ -2,10 +2,10 @@ console.log("JS CARGADO");
 const dates = 0;
 const addDate = () => {
     const aditionalDate = document.getElementById("aditional-date");
-    const dateIn = createElement("inout"):
-    dateIn.setAttribute("type", "text");
-    const dateOut = createElement("input");
-    dateOut.setAttribute("type", "text");
+    const dateIn = createElement("button"):
+    dateIn.setAttribute("type", "date");
+    const dateOut = createElement("button");
+    dateOut.setAttribute("type", "date");
     aditionalDate.appendChild(dateIn);
     aditionalDate.appendChild(dateOut);
 }
