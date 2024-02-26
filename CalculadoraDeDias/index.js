@@ -1,5 +1,10 @@
 console.log("JS CARGADO");
 
+const addDate = () => {
+    const aditionalDate = document.getElementById("aditional-date");
+    
+}
+
 const onCalculateDate = () => {
     console.log("Calculando fecha");
     const input = document.getElementById("days").value;
