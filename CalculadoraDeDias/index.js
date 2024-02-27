@@ -2,13 +2,14 @@ console.log("JS CARGADO");
 const dates = 0;
 const addDate = () => {
     const aditionalDate = document.getElementById("aditional-date");
-    const labelDateIn = document.createElement("label");
-    const labelDateOut = document.createElement("label");
+    const labelDateIn = document.createElement("p");
+    const labelDateOut = document.createElement("p");
     
     const dateIn = document.createElement("input");
     dateIn.setAttribute("type", "date");
     const dateOut = document.createElement("input");
     dateOut.setAttribute("type", "date");
+    labelDateIn.textContent("Fecha de ingreso:")
     
     aditionalDate.appendChild(labelDateIn);
     aditionalDate.appendChild(dateIn);
