@@ -9,10 +9,13 @@ const addDate = () => {
     dateIn.setAttribute("type", "date");
     const dateOut = document.createElement("input");
     dateOut.setAttribute("type", "date");
-    labelDateIn.textContent("Fecha de ingreso:")
+    labelDateIn.textContent("Fecha de ingreso:");
+    labelDateOut.textContent("Fecha de egreso:");
+    
     
     aditionalDate.appendChild(labelDateIn);
     aditionalDate.appendChild(dateIn);
+    aditionalDate.appendChild(labelDateOut);
     aditionalDate.appendChild(dateOut);
     console.log("funcion ejecutada");
 }
