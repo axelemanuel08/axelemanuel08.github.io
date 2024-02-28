@@ -1,60 +1,70 @@
 console.log("JS CARGADO");
+
 let dates = 1;
+
 const addDate = () => {
-    dates++;
-    const aditionalDate = document.getElementById("aditional-date");
-    const labelDateIn = document.createElement("p");
-    const labelDateOut = document.createElement("p");
-    
-    const dateIn = document.createElement("input");
-    dateIn.setAttribute("type", "date");
-    dateIn.setAttribute("id", `dateIn${dates}`); // Asignar id único
-    const dateOut = document.createElement("input");
-    dateOut.setAttribute("type", "date");
-    dateOut.setAttribute("id", `dateOut${dates}`); // Asignar id único
-    labelDateIn.textContent = "Fecha de ingreso:";
-    labelDateOut.textContent = "Fecha de egreso:";
-    
-    
-    aditionalDate.appendChild(labelDateIn);
-    aditionalDate.appendChild(dateIn);
-    aditionalDate.appendChild(labelDateOut);
-    aditionalDate.appendChild(dateOut);
-    console.log("funcion ejecutada");
-}
+  dates++;
+  const aditionalDate = document.getElementById("aditional-date");
+
+  const labelDateIn = document.createElement("p");
+  labelDateIn.textContent = "Fecha de ingreso:";
+
+  const labelDateOut = document.createElement("p");
+  labelDateOut.textContent = "Fecha de egreso:";
+
+  const dateIn = document.createElement("input");
+  dateIn.setAttribute("type", "date");
+  dateIn.setAttribute("id", `dateIn${dates}`); // Asign unique ID
+
+  const dateOut = document.createElement("input");
+  dateOut.setAttribute("type", "date");
+  dateOut.setAttribute("id", `dateOut${dates}`); // Asign unique ID
+
+  aditionalDate.appendChild(labelDateIn);
+  aditionalDate.appendChild(dateIn);
+  aditionalDate.appendChild(labelDateOut);
+  aditionalDate.appendChild(dateOut);
+
+  console.log("Función ejecutada");
+};
 
 const onCountDays = () => {
-    
-    console.log("Contando días");
+  console.log("Contando días");
   let totalDays = 0;
-    
-    const message = document.getElementById("mensaje1");
+  const message = document.getElementById("mensaje1");
+
   for (let i = 1; i <= dates; i++) {
     const dateIn = document.getElementById(`dateIn${i}`).value;
     const dateOut = document.getElementById(`dateOut${i}`).value;
 
     if (dateIn && dateOut) {
-      // Validar fechas
+      // Validate dates
       const date1 = new Date(dateIn);
       const date2 = new Date(dateOut);
+
       if (isNaN(date1.getTime()) || isNaN(date2.getTime())) {
         message.textContent = "Fechas inválidas en el rango " + i;
-        continue;
+        continue; // Skip to the next iteration if dates are invalid
       }
 
       const differenceInMilliseconds = date2.getTime() - date1.getTime();
-        if(differenceInMilliseconds<1){
-            console.log("Error al seleccionar las fechas")
-        }else{
-            // Convertir la diferencia de milisegundos a días
-            let differenceInDays = differenceInMilliseconds / (1000 * 60 * 60 * 24);
-        }  
-      totalDays += differenceInDays;
+      if (differenceInMilliseconds < 1) {
+        console.log("Error al seleccionar las fechas en el rango " + i);
+      } else {
+        // Convert difference to days, checking for non-zero difference beforehand
+        if (differenceInMilliseconds > 0) {
+          const differenceInDays = differenceInMilliseconds / (1000 * 60 * 60 * 24);
+          totalDays += differenceInDays;
+        } else {
+          console.log("Error al seleccionar las fechas en el rango " + i);
+        }
+      }
     } else {
       console.error("Faltan fechas en el rango " + i);
     }
   }
-message.textContent = "Diferencia en días:" + totalDays;
+
+  message.textContent = "Diferencia total en días: " + totalDays; // Display total days
 };
 
 const onCalculateDate = () => {
