@@ -24,6 +24,9 @@ const addDate = () => {
 }
 
 const onCountDays = () => {
+    
+    console.log("Contando días");
+    const countwi = document.getElementById("within").checked;
   let totalDays = 0;
     
     const message = document.getElementById("mensaje1");
