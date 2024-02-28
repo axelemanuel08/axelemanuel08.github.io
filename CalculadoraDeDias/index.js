@@ -26,7 +26,6 @@ const addDate = () => {
 const onCountDays = () => {
     
     console.log("Contando días");
-    const countwi = document.getElementById("within").checked;
   let totalDays = 0;
     
     const message = document.getElementById("mensaje1");
@@ -49,11 +48,6 @@ const onCountDays = () => {
         }else{
             // Convertir la diferencia de milisegundos a días
             let differenceInDays = differenceInMilliseconds / (1000 * 60 * 60 * 24);
-
-            // Mostrar la diferencia en días
-            if(countwi){
-                differenceInDays++;
-            }
         }  
       totalDays += differenceInDays;
     } else {
