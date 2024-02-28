@@ -7,8 +7,10 @@ const addDate = () => {
     
     const dateIn = document.createElement("input");
     dateIn.setAttribute("type", "date");
+    dateIn.setAttribute("id", `dateIn${dates}`); // Asignar id único
     const dateOut = document.createElement("input");
     dateOut.setAttribute("type", "date");
+    dateOut.setAttribute("id", `dateOut${dates}`); // Asignar id único
     labelDateIn.textContent("Fecha de ingreso:");
     labelDateOut.textContent("Fecha de egreso:");
     
@@ -18,6 +20,7 @@ const addDate = () => {
     aditionalDate.appendChild(labelDateOut);
     aditionalDate.appendChild(dateOut);
     console.log("funcion ejecutada");
+    dates++;
 }
 
 const onCalculateDate = () => {
