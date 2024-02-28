@@ -1,5 +1,5 @@
 console.log("JS CARGADO");
-let dates = 0;
+let dates = 1;
 const addDate = () => {
     dates++;
     const aditionalDate = document.getElementById("aditional-date");
