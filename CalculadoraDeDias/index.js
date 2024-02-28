@@ -23,8 +23,10 @@ const addDate = () => {
     console.log("funcion ejecutada");
 }
 
-const onCalculateDate = () => {
+const onCountDays = () => {
   let totalDays = 0;
+    
+    const message = document.getElementById("mensaje1");
   for (let i = 1; i <= dates; i++) {
     const dateIn = document.getElementById(`dateIn${i}`).value;
     const dateOut = document.getElementById(`dateOut${i}`).value;
@@ -34,21 +36,30 @@ const onCalculateDate = () => {
       const date1 = new Date(dateIn);
       const date2 = new Date(dateOut);
       if (isNaN(date1.getTime()) || isNaN(date2.getTime())) {
-        console.error("Fechas inválidas en el rango " + i);
+        message.textContent = "Fechas inválidas en el rango " + i;
         continue;
       }
 
       const differenceInMilliseconds = date2.getTime() - date1.getTime();
-      const differenceInDays = differenceInMilliseconds / (1000 * 60 * 60 * 24);
+        if(differenceInMilliseconds<1){
+            console.log("Error al seleccionar las fechas")
+        }else{
+            // Convertir la diferencia de milisegundos a días
+            let differenceInDays = differenceInMilliseconds / (1000 * 60 * 60 * 24);
+
+            // Mostrar la diferencia en días
+            if(countwi){
+                differenceInDays++;
+            }
+        }  
       totalDays += differenceInDays;
     } else {
       console.error("Faltan fechas en el rango " + i);
     }
   }
-  return totalDays;
+message.textContent = "Diferencia en días:" + totalDays;
 };
 
-/*
 const onCalculateDate = () => {
     console.log("Calculando fecha");
     const input = document.getElementById("days").value;
@@ -68,7 +79,7 @@ const onCalculateDate = () => {
         message.textContent = "La fecha maxima de permanencia es el: " + formattedDate;
     }
 }
- */
+/*
 const onCountDays = () => {
     console.log("Contando días");
     const countwi = document.getElementById("within").checked;
@@ -102,3 +113,4 @@ const onCountDays = () => {
         message.textContent = "Diferencia en días:" + differenceInDays;
     }
 }
+*/
