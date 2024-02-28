@@ -1,6 +1,7 @@
 console.log("JS CARGADO");
 let dates = 0;
 const addDate = () => {
+    dates++;
     const aditionalDate = document.getElementById("aditional-date");
     const labelDateIn = document.createElement("p");
     const labelDateOut = document.createElement("p");
@@ -20,9 +21,34 @@ const addDate = () => {
     aditionalDate.appendChild(labelDateOut);
     aditionalDate.appendChild(dateOut);
     console.log("funcion ejecutada");
-    dates++;
 }
 
+const onCalculateDate = () => {
+  let totalDays = 0;
+  for (let i = 1; i <= dates; i++) {
+    const dateIn = document.getElementById(`dateIn${i}`).value;
+    const dateOut = document.getElementById(`dateOut${i}`).value;
+
+    if (dateIn && dateOut) {
+      // Validar fechas
+      const date1 = new Date(dateIn);
+      const date2 = new Date(dateOut);
+      if (isNaN(date1.getTime()) || isNaN(date2.getTime())) {
+        console.error("Fechas inválidas en el rango " + i);
+        continue;
+      }
+
+      const differenceInMilliseconds = date2.getTime() - date1.getTime();
+      const differenceInDays = differenceInMilliseconds / (1000 * 60 * 60 * 24);
+      totalDays += differenceInDays;
+    } else {
+      console.error("Faltan fechas en el rango " + i);
+    }
+  }
+  return totalDays;
+};
+
+/*
 const onCalculateDate = () => {
     console.log("Calculando fecha");
     const input = document.getElementById("days").value;
@@ -42,7 +68,7 @@ const onCalculateDate = () => {
         message.textContent = "La fecha maxima de permanencia es el: " + formattedDate;
     }
 }
-
+ */
 const onCountDays = () => {
     console.log("Contando días");
     const countwi = document.getElementById("within").checked;
