@@ -11,8 +11,8 @@ const addDate = () => {
     const dateOut = document.createElement("input");
     dateOut.setAttribute("type", "date");
     dateOut.setAttribute("id", `dateOut${dates}`); // Asignar id único
-    labelDateIn.textContent("Fecha de ingreso:");
-    labelDateOut.textContent("Fecha de egreso:");
+    //labelDateIn.textContent("Fecha de ingreso:");
+    //labelDateOut.textContent("Fecha de egreso:");
     
     
     aditionalDate.appendChild(labelDateIn);
