@@ -1,5 +1,5 @@
 console.log("JS CARGADO");
-const dates = 0;
+let dates = 0;
 const addDate = () => {
     const aditionalDate = document.getElementById("aditional-date");
     const labelDateIn = document.createElement("p");
