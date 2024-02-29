@@ -94,7 +94,7 @@ const onCountVisa = () => {
   const input2 = document.getElementById("hastaVisa").value;
   const today = new Date(); // Obtain the current date
   const message = document.getElementById("mensaje3");
-  const desdeVisa = new Date(document.getElementById("visaDays").value);
+  const desdeVisa = new Date(document.getElementById("desdeVisa").value);
   const hastaVisa = Number.parseInt(input2);
 
   // Calculate the departure date (visa expiration date)
