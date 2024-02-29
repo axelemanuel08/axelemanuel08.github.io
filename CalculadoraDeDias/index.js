@@ -7,11 +7,11 @@ const addDate = () => {
   const aditionalDate = document.getElementById("aditional-date");
 
   const labelDateIn = document.createElement("p");
-  labelDateIn.textContent = "Fecha de " + dates + " ingreso:";
+  labelDateIn.textContent = "Fecha de " + dates + " Ingreso:";
   labelDateIn.setAttribute("class", "label");
 
   const labelDateOut = document.createElement("p");
-  labelDateOut.textContent = "Fecha de " + dates + " egreso:";
+  labelDateOut.textContent = "Fecha de " + dates + " Salida:";
   labelDateOut.setAttribute("class", "label");
 
   const dateIn = document.createElement("input");
