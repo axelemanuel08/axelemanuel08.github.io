@@ -108,5 +108,5 @@ const onCountVisa = () => {
   const fechaLimiteFormateada = fechaLimite.toLocaleDateString();
 
   // Mostrar la fecha límite en el mensaje
-  message3.textContent = "Tu visa vence el " + fechaLimiteFormateada;
+  message.textContent = "Tu visa vence el " + fechaLimiteFormateada;
 }
