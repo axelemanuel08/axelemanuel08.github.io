@@ -66,7 +66,7 @@ const onCountDays = () => {
     }
   }
 
-  message.textContent = "Diferencia total en días: " + totalDays; // Display total days
+  message.textContent = "Cantidad de dias dentro del pais: " + totalDays; // Display total days
 };
 
 const onCalculateDate = () => {
