@@ -102,6 +102,7 @@ const onCountVisa = () => {
 
   // Sumar la cantidad de días a la fecha de entrada
   const fechaLimite = new Date(today.setDate(today.getDate() + desdeVisa));
+  console.log(fechaLimite);
 
   // Formatear la fecha límite
   const fechaLimiteFormateada = fechaLimite.toLocaleDateString();
