@@ -90,13 +90,11 @@ const onCalculateDate = () => {
 }
 
 const onCountVisa = () => {
-  console.log("calculando Visa")
-  const input = document.getElementById("visaDays").value;
+  console.log("calculando Visa");
   const input2 = document.getElementById("hastaVisa").value;
   const today = new Date(); // Obtener la fecha actual
   const message = document.getElementById("mensaje3");
-  
-  const desdeVisa = Number.parseInt(input);
+  const desdeVisa = new Date(document.getElementById("visaDays").value);
   const hastaVisa = Number.parseInt(input2);
 
   console.log(desdeVisa);
