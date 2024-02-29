@@ -88,3 +88,17 @@ const onCalculateDate = () => {
         message.textContent = "La fecha maxima de permanencia es el: " + formattedDate;
     }
 }
+
+const onCountVisa = () => {
+  console.log("calculando Visa")
+  const input = document.getElementById("visaDays").value;
+  const input2 = document.getElementById("hastaVisa").value;
+  const today = new Date(); // Obtener la fecha actual
+  const message = document.getElementById("mensaje3");
+  
+  const desdeVisa = Number.parseInt(input);
+  const hastaVisa = Number.parseInt(input2);
+
+  console.log(desdeVisa);
+  console.log(hastaVisa);
+}
