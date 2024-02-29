@@ -33,7 +33,7 @@ article {
     margin-bottom: 20px;
 }
 
-label {
+.label {
     font-weight: bold;
     color: #007bff;
 }
