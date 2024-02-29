@@ -88,20 +88,6 @@ const onCalculateDate = () => {
         message.textContent = "La fecha maxima de permanencia es el: " + formattedDate;
     }
 }
-
-Código modificado con las sugerencias:
-HTML
-<section>
-  <article>
-    <p class="label">Ingresar Fecha:</p>
-    <input id="desdeVisa" type="date" />
-    <input id="hastaVisa" type="text" />
-    <button id="calcularVisa" type="button" onclick="onCountVisa()">Calcular</button>
-    <p id="mensaje3"></p>
-  </article>
-</section>
-
-<script>
 const onCountVisa = () => {
   console.log("calculando Visa");
   const input2 = document.getElementById("hastaVisa").value;
