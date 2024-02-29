@@ -110,7 +110,7 @@ const onCountVisa = () => {
   // Solución 2: Usar los métodos `Date.prototype.setFullYear()` y `Date.prototype.setMonth()`
   salida.setFullYear(desdeVisa.getFullYear());
   salida.setMonth(desdeVisa.getMonth());
-  salida.setDate(desdeVisa.getDate() + hastaVisa);
+  salida.setDate(desdeVisa.getDate() + hastaVisa + 1);
 
   console.log(desdeVisa); // Mostrar la fecha de entrada
   console.log(hastaVisa); // Mostrar la cantidad de días
