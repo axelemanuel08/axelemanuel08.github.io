@@ -18,16 +18,8 @@
                 <label class="label "for="dateOut1" >Fecha de Salida:</label>
                 <input type="date" id="dateOut1">
             </article>
-            <article>
-                <label class="within-label" for="within">
-                    <p>Contar el dia de ingreso</p>
-                    <input type="checkbox" id="within" name="count-option" onchange="onChangeStyle()">
-                    <span class="checkmark"></span>
-                </label>
-            </article>
             <div id="aditional-date">
             </div>
-            <p>Experimental, no hacer click</p>
             <button type="button" onClick="addDate()">Agregar transito</button>
             <button id="calculardias" type="button" onclick="onCountDays()">Calcular</button>
             <span id="mensaje1"></span>
