@@ -8,9 +8,11 @@ const addDate = () => {
 
   const labelDateIn = document.createElement("p");
   labelDateIn.textContent = "Fecha de ingreso:";
+  labelDateIn.setAttribute("class", "label");
 
   const labelDateOut = document.createElement("p");
   labelDateOut.textContent = "Fecha de egreso:";
+  labelDateOut.setAttribute("class", "label");
 
   const dateIn = document.createElement("input");
   dateIn.setAttribute("type", "date");
