@@ -92,20 +92,23 @@ const onCalculateDate = () => {
 const onCountVisa = () => {
   console.log("calculando Visa");
   const input2 = document.getElementById("hastaVisa").value;
-  const date = new Date(); // Obtener la fecha actual
+  const today = new Date(); // Obtain the current date
   const message = document.getElementById("mensaje3");
   const desdeVisa = new Date(document.getElementById("visaDays").value);
   const hastaVisa = Number.parseInt(input2);
-  const salida = new Date(date);
-  salida.setDate(ingreso.getDate() + input2);
-  
-  console.log(ingreso);
+
+  // Calculate the departure date (visa expiration date)
+  const salida = new Date(desdeVisa); // Use desdeVisa as the base date
+  salida.setDate(salida.getDate() + hastaVisa); // Add the number of visa days to "desdeVisa"
+
+  console.log(desdeVisa); // Corrected to display "desdeVisa"
   console.log(hastaVisa);
 
+  // Format the departure date for display
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        const formattedDate = futureDate.toLocaleDateString('es-ES', options);
+  const formattedDepartureDate = salida.toLocaleDateString('es-ES', options);
 
-  // Mostrar la fecha límite y la cantidad de días en el mensaje
-  message.textContent = "Tu visa vence el " + formattedDate;
+  // Display the visa expiration message
+  message.textContent = "Tu visa vence el " + formattedDepartureDate;
 };
 
