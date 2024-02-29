@@ -88,38 +88,3 @@ const onCalculateDate = () => {
         message.textContent = "La fecha maxima de permanencia es el: " + formattedDate;
     }
 }
-/*
-const onCountDays = () => {
-    console.log("Contando días");
-    const countwi = document.getElementById("within").checked;
-    const date1node = document.getElementById("arriving-date").value;
-    const date2node = document.getElementById("leaving-date").value;
-    const message = document.getElementById("mensaje1");
-
-    // Convertir las cadenas de fecha a objetos Date
-    const date1 = new Date(date1node);
-    const date2 = new Date(date2node);
-
-    // Verificar que las fechas sean válidas
-    if (isNaN(date1.getTime()) || isNaN(date2.getTime())) {
-        console.error("Al menos una de las fechas no es válida");
-        return;
-    }
-
-    // Calcular la diferencia en milisegundos
-    const differenceInMilliseconds = date2.getTime() - date1.getTime();
-
-    if(differenceInMilliseconds<1){
-        console.log("Error al seleccionar las fechas")
-    }else{
-        // Convertir la diferencia de milisegundos a días
-        let differenceInDays = differenceInMilliseconds / (1000 * 60 * 60 * 24);
-
-        // Mostrar la diferencia en días
-        if(countwi){
-            differenceInDays++;
-        }
-        message.textContent = "Diferencia en días:" + differenceInDays;
-    }
-}
-*/
