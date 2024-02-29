@@ -99,12 +99,17 @@ const onCountVisa = () => {
 
   console.log(desdeVisa);
   console.log(hastaVisa);
+
   // Sumar la cantidad de días a la fecha de entrada
   const fechaLimite = new Date(today.setDate(today.getDate() + desdeVisa));
 
   // Formatear la fecha límite
   const fechaLimiteFormateada = fechaLimite.toLocaleDateString();
 
-  // Mostrar la fecha límite en el mensaje
-  message.textContent = "Tu visa vence el " + fechaLimiteFormateada;
-}
+  // Formatear la fecha de entrada
+  const fechaEntradaFormateada = desdeVisa.toLocaleDateString();
+
+  // Mostrar la fecha límite y la cantidad de días en el mensaje
+  message.textContent = "Tu visa vence el " + fechaLimiteFormateada + " (" + desdeVisa + " días)";
+};
+
