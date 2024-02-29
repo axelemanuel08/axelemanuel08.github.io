@@ -89,26 +89,50 @@ const onCalculateDate = () => {
     }
 }
 
+Código modificado con las sugerencias:
+HTML
+<section>
+  <article>
+    <p class="label">Ingresar Fecha:</p>
+    <input id="desdeVisa" type="date" />
+    <input id="hastaVisa" type="text" />
+    <button id="calcularVisa" type="button" onclick="onCountVisa()">Calcular</button>
+    <p id="mensaje3"></p>
+  </article>
+</section>
+
+<script>
 const onCountVisa = () => {
   console.log("calculando Visa");
   const input2 = document.getElementById("hastaVisa").value;
-  const today = new Date(); // Obtain the current date
+  const today = new Date(); // Obtener la fecha actual
   const message = document.getElementById("mensaje3");
   const desdeVisa = new Date(document.getElementById("desdeVisa").value);
   const hastaVisa = Number.parseInt(input2);
 
-  // Calculate the departure date (visa expiration date)
-  const salida = new Date(desdeVisa); // Use desdeVisa as the base date
-  salida.setDate(salida.getDate() + hastaVisa); // Add the number of visa days to "desdeVisa"
+  // Validar la entrada
+  if (!desdeVisa || !hastaVisa || hastaVisa <= 0) {
+    message.textContent = "Entrada inválida. Por favor, ingrese una fecha válida y un número positivo de días de permanencia.";
+    return;
+  }
 
-  console.log(desdeVisa); // Corrected to display "desdeVisa"
-  console.log(hastaVisa);
+  // Calcular la fecha de salida (fecha de vencimiento de la visa)
+  const salida = new Date(desdeVisa);
+  // Solución 1: Usar el método `Date.prototype.setDate()`
+  // salida.setDate(salida.getDate() + hastaVisa - 1); // Restar 1 día de la fecha calculada
 
-  // Format the departure date for display
+  // Solución 2: Usar los métodos `Date.prototype.setFullYear()` y `Date.prototype.setMonth()`
+  salida.setFullYear(desdeVisa.getFullYear());
+  salida.setMonth(desdeVisa.getMonth());
+  salida.setDate(desdeVisa.getDate() + hastaVisa);
+
+  console.log(desdeVisa); // Mostrar la fecha de entrada
+  console.log(hastaVisa); // Mostrar la cantidad de días
+
+  // Formatear la fecha de salida para mostrarla
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const formattedDepartureDate = salida.toLocaleDateString('es-ES', options);
 
-  // Display the visa expiration message
+  // Mostrar la fecha de vencimiento de la visa
   message.textContent = "Tu visa vence el " + formattedDepartureDate;
 };
-
