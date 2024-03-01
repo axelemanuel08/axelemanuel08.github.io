@@ -1,5 +1,3 @@
-console.log("JS CARGADO");
-
 let dates = 1;
 
 const addDate = () => {
@@ -27,11 +25,9 @@ const addDate = () => {
   aditionalDate.appendChild(labelDateOut);
   aditionalDate.appendChild(dateOut);
 
-  console.log("Función ejecutada");
 };
 
 const onCountDays = () => {
-  console.log("Contando días");
   let totalDays = 0;
   const message = document.getElementById("mensaje1");
 
@@ -55,13 +51,13 @@ const onCountDays = () => {
       if (date1.getDate() === date2.getDate() && date1.getMonth() === date2.getMonth() && date1.getFullYear() === date2.getFullYear()) {
         totalDays += 1;
       } else if (differenceInMilliseconds < 1) {
-        console.log("Error al seleccionar las fechas en el rango " + i);
+        message.textContent = "Error al seleccionar las fechas en el rango " + i;
       } else {
         const differenceInDays = differenceInMilliseconds / (1000 * 60 * 60 * 24);
         totalDays += Math.ceil(differenceInDays); // Use Math.ceil to round up for partial days
       }
     } else {
-      console.error("Faltan fechas en el rango " + i);
+      message.textContent = "Faltan fechas en el rango " + i;
     }
   }
 
@@ -69,7 +65,6 @@ const onCountDays = () => {
 };
 
 const onCalculateDate = () => {
-    console.log("Calculando fecha");
     const input = document.getElementById("days").value;
     const today = new Date(); // Obtener la fecha actual
     const message = document.getElementById("mensaje2");
@@ -88,7 +83,6 @@ const onCalculateDate = () => {
     }
 }
 const onCountVisa = () => {
-  console.log("calculando Visa");
   const input2 = document.getElementById("hastaVisa").value;
   const today = new Date(); // Obtener la fecha actual
   const message = document.getElementById("mensaje3");
@@ -110,9 +104,6 @@ const onCountVisa = () => {
   salida.setFullYear(desdeVisa.getFullYear());
   salida.setMonth(desdeVisa.getMonth());
   salida.setDate(desdeVisa.getDate() + hastaVisa + 1);
-
-  console.log(desdeVisa); // Mostrar la fecha de entrada
-  console.log(hastaVisa); // Mostrar la cantidad de días
 
   // Formatear la fecha de salida para mostrarla
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
