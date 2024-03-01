@@ -42,6 +42,7 @@ const onCountDays = () => {
 
       if (isNaN(date1.getTime()) || isNaN(date2.getTime())) {
         message.textContent = "Fechas inválidas en el rango " + i;
+        console.log(message.textContent);
         continue; // Skip to the next iteration if dates are invalid
       }
 
