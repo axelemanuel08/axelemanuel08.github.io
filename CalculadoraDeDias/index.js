@@ -50,16 +50,15 @@ const onCountDays = () => {
       }
 
       const differenceInMilliseconds = date2.getTime() - date1.getTime();
-      if (differenceInMilliseconds < 1) {
+
+      // Check for the same day and adjust totalDays accordingly
+      if (date1.getDate() === date2.getDate() && date1.getMonth() === date2.getMonth() && date1.getFullYear() === date2.getFullYear()) {
+        totalDays += 1;
+      } else if (differenceInMilliseconds < 1) {
         console.log("Error al seleccionar las fechas en el rango " + i);
       } else {
-        // Convert difference to days, checking for non-zero difference beforehand
-        if (differenceInMilliseconds > 0) {
-          const differenceInDays = differenceInMilliseconds / (1000 * 60 * 60 * 24);
-          totalDays += differenceInDays;
-        } else {
-          console.log("Error al seleccionar las fechas en el rango " + i);
-        }
+        const differenceInDays = differenceInMilliseconds / (1000 * 60 * 60 * 24);
+        totalDays += Math.ceil(differenceInDays); // Use Math.ceil to round up for partial days
       }
     } else {
       console.error("Faltan fechas en el rango " + i);
