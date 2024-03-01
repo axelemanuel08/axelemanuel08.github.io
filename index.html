@@ -39,58 +39,7 @@
             background-color: #2980b9;
         }
 
-        #sign {
-            display: block;
-            font-size: 8px;
-            font-family: monospace;
-            white-space: nowrap;
-            border-right: 4px solid;
-            width: 8ch;
-            animation: typing 2s steps(8), blink 0.5s infinite step-end alternate;
-            overflow: hidden;
-        }
-        #by {
-  position: relative;
-  font-family: monospace;
-  font-size: 14px;
-  font-weight: 500;
-  color: #888;
-  margin-top: 10px;
-  padding: 5px 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   
-  /* Animación de tipeo */
-  animation: type 3s steps(20, end) infinite;
-  
-  /* Efecto de cursor parpadeante */
-  &::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 5px;
-    transform: translateY(-50%);
-    width: 2px;
-    height: 10px;
-    background-color: #555;
-    animation: blink 1s steps(2, end) infinite;
-  }
-}
-
-/* Animación de tipeo */
-@keyframes type {
-  from {
-    width: 0;
-  }
-}
-
-/* Animación de cursor parpadeante */
-@keyframes blink {
-  from, to {
-    opacity: 1;
-  }
-}
     </style>
 </head>
 <body>
