@@ -3,7 +3,6 @@ const modal = document.getElementById('modal');
 const closeModalButton = document.getElementById('close-modal');
 
 openModalButton.addEventListener('click', () => {
-  console.log("abriendo");
   modal.style.display = 'block';
 });
 

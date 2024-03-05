@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Herramientas</title>
+  <title>Herramientas Migraciones</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -67,8 +67,7 @@
       animation: blink 1s infinite;
     }
 
-    /* Style the button */
-  /* Style the button */
+    /* Estilo boton abrir */
   #open-modal {
       position: fixed;
       top: 20px;
@@ -88,7 +87,7 @@
     }
 
 
-    /* Hide the modal initially */
+    /* Esconder el modal inicialmente */
   .modal {
     display: none;
     position: fixed;
@@ -100,7 +99,7 @@
     z-index: 999;
   }
   
-  /* Center the modal content */
+  /* Estilo contenido del modal */
   .modal-content {
     position: absolute;
     top: 50%;
@@ -111,7 +110,7 @@
     border-radius: 10px;
   }
   
-  /* Modal title and text styles */
+  /* Estilo del titulo y texto del modal */
   #modal-title, #modal-text {
     margin-bottom: 10px;
   }
@@ -121,7 +120,7 @@
     font-weight: bold;
   }
   
-  /* Style the close button */
+  /* Estilo boton cerrar */
   #close-modal {
     padding: 5px 10px;
     background-color: #ccc;
@@ -164,9 +163,9 @@
 <body>
   <button id="open-modal">?</button>
   <div class="container">
-    <input type="button" value="Contar Días" onclick="window.location.href='./CalculadoraDeDias/index.html';">
+    <input type="button" value="Contador de Días" onclick="window.location.href='./CalculadoraDeDias/index.html';">
     <br> <!-- Añadido para separar los botones verticalmente -->
-    <input type="button" value="Ver Régimen" onclick="window.location.href='./buscarPais/index.html';">
+    <input type="button" value="Ver Régimen de Visas" onclick="window.location.href='./buscarPais/index.html';">
     <p id="typed">Desarrollado por LexA.</p>
     <div class="info">
       <p id="sign">Ver <a href="https://github.com/axelemanuel23/axelemanuel23.github.io">Repositorio</a></p>
@@ -174,11 +173,11 @@
     </div>
     <div id="modal" class="modal">
       <div class="modal-content">
-        <h2 id="modal-title">Como usar la herramienta</h2>
+        <h2 id="modal-title">¿Como usar la herramienta?</h2>
         <p id="modal-text">Contar dias</p>
         <p>Calcular dias de permanencia de uno o varios transitos.</p>
         <p>Calcular la fecha limite de una permanencia</p>
-        <p id="modal-text">Ver Regimen</p>
+        <p id="modal-text">Ver Regimen de Visas</p>
         <p>Ver requisitos de ingreso de cada pais.</p>
         <button id="close-modal">Cerrar</button>
       </div>
