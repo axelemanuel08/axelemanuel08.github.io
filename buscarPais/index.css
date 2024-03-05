@@ -102,3 +102,57 @@ input[type="button"]:hover {
         border-color: transparent;
     }
 }
+
+/* Style the button (unchanged) */
+#openModal {
+    width: 80px;
+    padding: 10px 20px;
+    background-color: #ccc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px;
+  }
+  
+  /* Hide the modal initially (unchanged) */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+  
+  /* Center the modal content (unchanged) */
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  
+  /* Modal title and text styles */
+  #modal-title, #modal-text {
+    margin-bottom: 10px;
+  }
+  
+  #modal-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  /* Style the close button (unchanged) */
+  #close-modal {
+    padding: 5px 10px;
+    background-color: #ccc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }

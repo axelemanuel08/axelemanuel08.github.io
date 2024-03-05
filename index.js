@@ -3,6 +3,7 @@ const modal = document.getElementById('modal');
 const closeModalButton = document.getElementById('close-modal');
 
 openModalButton.addEventListener('click', () => {
+  console.log("abriendo");
   modal.style.display = 'block';
 });
 
@@ -16,12 +17,3 @@ window.addEventListener('click', (event) => {
     modal.style.display = 'none';
   }
 });
-
-const onOpenModal = () => {
-    modal.style.display = "block";
-}
-
-const onCloseModal = () => {
-    modal.style.display = "none";
-}
-

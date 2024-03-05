@@ -11,6 +11,8 @@
         <h1>Buscador de País</h1>
     </header>
     <main>
+        
+        <button id="openModal">Ayuda</button>
         <section class="search-section">
             <div class="search-container">
                 <input id="searchInput" type="text" onInput="onChangeValue()" placeholder="Buscar país..."/>
@@ -24,6 +26,15 @@
         <footer>
             <p id="sign">Desarrollado por ****</p>
         </footer>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+              <h2 id="modal-title">¿Cómo usar la herramienta?</h2>
+              <p id="modal-text">Esta herramienta te permite conocer fácilmente los requisitos de ingreso para un ciudadano listado en el regimen de visa.</p>
+              <p>Simplemente ingresa el nombre del país al que pertenece el ciudadano.</p>
+              <p>Una vez ingresadas 3 letras la herramienta te mostrará una lista detallada con todos los requisitos necesarios para que el ciudadano del pais pueda ingresar a Argentina</p>
+              <button id="close-modal">Cerrar</button>
+            </div>
+          </div>
     </main>
     <script src="index.js"></script>    
 </body>
