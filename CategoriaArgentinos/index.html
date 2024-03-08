@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorizacion de Argentinos</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <h1>Categorizacion de Argentinos</h1>
+    </header>
+    <main>
+        <button id="openModal">Ayuda</button>
+        <section class="search-section">
+            <div class="search-container">
+                <label>Ingrese el pais emisor del documento.</label>
+                <input id="searchInput" type="text" onInput="onChangeValue()" placeholder="Buscar país..."/>
+            </div>
+            <div class="result-container">
+                <table id="resultTable"></table>
+                <p id="reference-link">Ver <a href="https://drive.google.com/file/d/107d8f-AQNmZLNeSSJx8CjWq8pFCd0_ZL/view?usp=sharing" id="reference" target="_blank" >referencia</a></p>
+            </div>
+            <input type="button" value="Volver" onclick="window.location.href='../index.html';">
+        </section>
+        <footer>
+            <p id="sign">Desarrollado por ****</p>
+        </footer>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+              <h2 id="modal-title">¿Cómo usar la herramienta?</h2>
+              <p id="modal-text">Esta herramienta te permite conocer la categoria correcta para los argentinos con documentacion extranjera.</p>
+              <button id="close-modal">Cerrar</button>
+            </div>
+          </div>
+    </main>
+    <script src="index.js"></script>    
+</body>
+</html>
