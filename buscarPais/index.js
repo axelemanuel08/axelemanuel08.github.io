@@ -42,7 +42,7 @@ window.addEventListener('click', (event) => {
       ["BAHREIN", "BHR", "V-AVE", "V", "V"],
       ["BANGLADESH", "BGD", "V", "-", "-"],
       ["BARBADOS", "BRB", "-", "-", "-"],
-      ["BELARUS (BIELORRUSIA)", "BLR", "V", "-", "-"],
+      ["BELARUS (BIELORRUSIA)", "BLR", "-/V", "-", "-"],
       ["BELARUS (BIELORRUSIA)", "BLR", "90 DIAS", "EN", "1 AÑO"],
       ["BELGICA (OCDE)", "BEL", "-", "-", "-"],
       ["BELICE", "BLZ", "V-AVE", "-", "-"],

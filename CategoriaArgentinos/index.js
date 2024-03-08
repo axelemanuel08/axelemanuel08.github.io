@@ -54,6 +54,7 @@ window.addEventListener('click', (event) => {
     ];
     
     console.log(listaDePaises.length);
+    //Funcion Buscadora
     const onChangeValue = () => {
       const search = input.value.trim().toLowerCase();
 
@@ -90,7 +91,16 @@ window.addEventListener('click', (event) => {
         cabecera.appendChild(headerCell);
         headerCell.textContent = headerText;
       });
+      //Si no encontramos el pais, entonces no hay convenio
+      if(matchingData==0){
+        //Aplica el pais "Otros"
+        value("otros",dataObject);
+        return;
+      }
+      renderData(matchingData, tabla);
+    };
 
+    const renderData = (matchingData, tabla) => {
       // Iterar sobre los datos coincidentes y agregar filas a la tabla
       matchingData.forEach((item) => {
         const fila = document.createElement("tr");
@@ -112,7 +122,7 @@ window.addEventListener('click', (event) => {
         toggleElement(tabla, true);
         toggleElement(referenceLink, true);
       }
-    };
+    }
 
     const toggleElement = (element, isHidden) => {
       // Alternar entre ocultar y mostrar el elemento
