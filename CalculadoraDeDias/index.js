@@ -57,7 +57,7 @@ const onCountDays = () => {
   //Variable contenedora de los dias
   let totalDays = 0;
   //Elemento que desplegará los mensajes necesarios para informar al usuario sobre el funcionamiento
-  const errormsg = document.getElementById("errmsg");
+  const errormsg = document.getElementById("errormsg");
   const message = document.getElementById("mensaje1");
 
   //Iteracion sobre los transitos existentes
