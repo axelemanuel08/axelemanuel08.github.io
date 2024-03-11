@@ -52,6 +52,8 @@ const addDate = () => {
 
 };
 
+
+
 //Funcion para contar los dias
 const onCountDays = () => {
   //Variable contenedora de los dias
@@ -59,7 +61,7 @@ const onCountDays = () => {
   //Elemento que desplegará los mensajes necesarios para informar al usuario sobre el funcionamiento
   const errormsg = document.getElementById("errormsg");
   const message = document.getElementById("mensaje1");
-
+  
   //Iteracion sobre los transitos existentes
   for (let i = 1; i <= dates; i++) {
     //Obtener los datos de las fechas
@@ -75,7 +77,9 @@ const onCountDays = () => {
       //Si no hay nada dentro
       if (isNaN(date1.getTime()) || isNaN(date2.getTime())) {
         //Informamos del error de datos
-        errormsg.textContent = "Fechas inválidas en el rango " + i;
+        const p = document.createElement("p");
+        errormsg.appendChild(p);
+        p.textContent = "Fechas inválidas en el rango " + i;
         //Continuamos con la siguiente iteracion
         continue; 
       }
@@ -88,7 +92,9 @@ const onCountDays = () => {
         totalDays += 1;
         //Si la diferencia es negativa
       } else if (differenceInMilliseconds < 1) {
-        errormsg.textContent = "Error al seleccionar las fechas en el rango " + i;
+        const p = document.createElement("p");
+        errormsg.appendChild(p);
+        p.textContent = "Error al seleccionar las fechas en el rango " + i;
         //Si la diferencia es positiva
       } else {
         //Calculamos a cuantos dias equivalen
@@ -98,7 +104,9 @@ const onCountDays = () => {
       }
     //Si no existen
     } else {
-      errormsg.textContent = "Faltan fechas en el rango " + i;
+      const p = document.createElement("p");
+      errormsg.appendChild(p);
+      p.textContent = "Faltan fechas en el rango " + i;
     }
   }
   //Mensaje final
