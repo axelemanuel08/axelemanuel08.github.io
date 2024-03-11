@@ -79,7 +79,7 @@ const onCountDays = () => {
         //Informamos del error de datos
         const p = document.createElement("p");
         errormsg.appendChild(p);
-        p.textContent = "Fechas inválidas en el rango " + i;
+        p.textContent = "Fechas inválidas en el transito " + i + " , debe ingresar una fecha valida";
         //Continuamos con la siguiente iteracion
         continue; 
       }
@@ -94,7 +94,7 @@ const onCountDays = () => {
       } else if (differenceInMilliseconds < 1) {
         const p = document.createElement("p");
         errormsg.appendChild(p);
-        p.textContent = "Error al seleccionar las fechas en el rango " + i;
+        p.textContent = "Error al seleccionar las fechas en el transito " + i + ", la diferencia es negativa";
         //Si la diferencia es positiva
       } else {
         //Calculamos a cuantos dias equivalen
@@ -106,7 +106,7 @@ const onCountDays = () => {
     } else {
       const p = document.createElement("p");
       errormsg.appendChild(p);
-      p.textContent = "Faltan fechas en el rango " + i;
+      p.textContent = "Faltan fechas en el transito " + i;
     }
   }
   //Mensaje final
