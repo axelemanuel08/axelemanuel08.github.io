@@ -57,6 +57,7 @@ const onCountDays = () => {
   //Variable contenedora de los dias
   let totalDays = 0;
   //Elemento que desplegará los mensajes necesarios para informar al usuario sobre el funcionamiento
+  const errormsg = document.getElementById("errmsg");
   const message = document.getElementById("mensaje1");
 
   //Iteracion sobre los transitos existentes
@@ -74,7 +75,7 @@ const onCountDays = () => {
       //Si no hay nada dentro
       if (isNaN(date1.getTime()) || isNaN(date2.getTime())) {
         //Informamos del error de datos
-        message.textContent = "Fechas inválidas en el rango " + i;
+        errormsg.textContent = "Fechas inválidas en el rango " + i;
         //Continuamos con la siguiente iteracion
         continue; 
       }
@@ -87,7 +88,7 @@ const onCountDays = () => {
         totalDays += 1;
         //Si la diferencia es negativa
       } else if (differenceInMilliseconds < 1) {
-        message.textContent = "Error al seleccionar las fechas en el rango " + i;
+        errormsg.textContent = "Error al seleccionar las fechas en el rango " + i;
         //Si la diferencia es positiva
       } else {
         //Calculamos a cuantos dias equivalen
@@ -97,7 +98,7 @@ const onCountDays = () => {
       }
     //Si no existen
     } else {
-      message.textContent = "Faltan fechas en el rango " + i;
+      errormsg.textContent = "Faltan fechas en el rango " + i;
     }
   }
   //Mensaje final
