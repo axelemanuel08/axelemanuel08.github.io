@@ -44,7 +44,7 @@ window.addEventListener('click', (event) => {
         ["HONDURAS", "HND", "SI" ,"-","RTU 90","-"],
         ["NICARAGUA", "NIC", "SI" ,"-","RTU 90","-"],
         ["ESTADOS UNIDOS", "USA", "SI (Antes del 81)" ,"-","RTU 90","-"],
-        ["ESTADOS UNIDOS", "USA", "No despues del 81" ,"-","ARE 180","-"],
+        ["ESTADOS UNIDOS", "USA", "No (Despues del 81)" ,"-","ARE 180","-"],
         ["FRANCIA", "FRA", "NO" ,"-","ARE 180","-"],
         ["MEXICO", "MEX", "NO" ,"-","ARE 180","-"],
         ["CANADA", "CAN", "NO" ,"-","ARE 180","-"],
