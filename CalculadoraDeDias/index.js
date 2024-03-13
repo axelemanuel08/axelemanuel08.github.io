@@ -61,9 +61,16 @@ const onCountDays = () => {
   //Elemento que desplegará los mensajes necesarios para informar al usuario sobre el funcionamiento
   const errormsg = document.getElementById("errormsg");
   const message = document.getElementById("mensaje1");
-  const p = document.createElement("p");
-  errormsg.appendChild(p);
-  p.textContent = "";
+
+  //mensajes a desplegar
+  const error1 = document.getElementById("error1");
+  const error2 = document.getElementById("error2");
+  const error3 = document.getElementById("error3");
+
+  error1.textContent = "";
+  error2.textContent = "";
+  error3.textContent = "";
+  
   //Iteracion sobre los transitos existentes
   for (let i = 1; i <= dates; i++) {
     //Obtener los datos de las fechas
@@ -79,7 +86,8 @@ const onCountDays = () => {
       //Si no hay nada dentro
       if (isNaN(date1.getTime()) || isNaN(date2.getTime())) {
         //Informamos del error de datos
-        p.textContent = "Fechas inválidas en el transito " + i + " , debe ingresar una fecha valida";
+        errormsg.appendChild(error1);
+        error1.textContent = "Fechas inválidas en el transito " + i + " , debe ingresar una fecha valida";
         //Continuamos con la siguiente iteracion
         continue; 
       }
@@ -92,9 +100,8 @@ const onCountDays = () => {
         totalDays += 1;
         //Si la diferencia es negativa
       } else if (differenceInMilliseconds < 1) {
-        const p = document.createElement("p");
-        errormsg.appendChild(p);
-        p.textContent = "Error al seleccionar las fechas en el transito " + i + ", la diferencia es negativa";
+        errormsg.appendChild(error2);
+        error2.textContent = "Error al seleccionar las fechas en el transito " + i + ", la diferencia es negativa";
         //Si la diferencia es positiva
       } else {
         //Calculamos a cuantos dias equivalen
@@ -104,9 +111,8 @@ const onCountDays = () => {
       }
     //Si no existen
     } else {
-      const p = document.createElement("p");
-      errormsg.appendChild(p);
-      p.textContent = "Faltan fechas en el transito " + i;
+      errormsg.appendChild(error3);
+      error3.textContent = "Faltan fechas en el transito " + i;
     }
   }
   //Mensaje final
