@@ -61,7 +61,9 @@ const onCountDays = () => {
   //Elemento que desplegará los mensajes necesarios para informar al usuario sobre el funcionamiento
   const errormsg = document.getElementById("errormsg");
   const message = document.getElementById("mensaje1");
-  
+  const p = document.createElement("p");
+  errormsg.appendChild(p);
+  p.textContent = "";
   //Iteracion sobre los transitos existentes
   for (let i = 1; i <= dates; i++) {
     //Obtener los datos de las fechas
@@ -77,8 +79,6 @@ const onCountDays = () => {
       //Si no hay nada dentro
       if (isNaN(date1.getTime()) || isNaN(date2.getTime())) {
         //Informamos del error de datos
-        const p = document.createElement("p");
-        errormsg.appendChild(p);
         p.textContent = "Fechas inválidas en el transito " + i + " , debe ingresar una fecha valida";
         //Continuamos con la siguiente iteracion
         continue; 
