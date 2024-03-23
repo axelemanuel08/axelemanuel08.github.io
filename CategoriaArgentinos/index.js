@@ -53,7 +53,6 @@ window.addEventListener('click', (event) => {
         ["OTROS", "-", "NO" ,"-","ARE 180","-"],
     ];
     
-    console.log(listaDePaises.length);
     //Funcion Buscadora
     const onChangeValue = () => {
       const search = input.value.trim().toLowerCase();
@@ -93,21 +92,21 @@ window.addEventListener('click', (event) => {
       });
       //Si no encontramos el pais, entonces no hay convenio
       if(matchingData==0){
-        //Aplica el pais "Otros"
-        value("otros",dataObject);
+        //Aplica el pais "Otros" el objeto debe ser un array de arrays
+        renderData([["OTROS", "-", "NO" ,"-","ARE 180","-"]])
         return;
       }
-      renderData(matchingData, tabla);
+      renderData(matchingData);
     };
 
-    const renderData = (matchingData, tabla) => {
+    const renderData = (matchingData) => {
       // Iterar sobre los datos coincidentes y agregar filas a la tabla
       matchingData.forEach((item) => {
         const fila = document.createElement("tr");
         tabla.appendChild(fila);
 
         // Iterar sobre los elementos del array
-        item.forEach((value, index) => {
+        item.forEach((value) => {
           const columna = document.createElement("td");
           fila.appendChild(columna);
           const data = document.createElement("p");

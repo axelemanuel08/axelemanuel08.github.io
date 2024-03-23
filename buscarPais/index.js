@@ -254,8 +254,6 @@ window.addEventListener('click', (event) => {
   ["ZAMBIA", "ZMB", "V-AVE", "V", "V"],
   ["ZIMBABWE", "ZWE", "V-AVE", "V", "V"],
     ];
-    
-    console.log(listaDePaises.length);
     const onChangeValue = () => {
       const search = input.value.trim().toLowerCase();
 
@@ -299,7 +297,7 @@ window.addEventListener('click', (event) => {
         tabla.appendChild(fila);
 
         // Iterar sobre los elementos del array
-        item.forEach((value, index) => {
+        item.forEach((value) => {
           const columna = document.createElement("td");
           fila.appendChild(columna);
           const data = document.createElement("p");
