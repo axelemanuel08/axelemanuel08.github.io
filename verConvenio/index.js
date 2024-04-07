@@ -19,7 +19,7 @@ window.addEventListener('click', (event) => {
 });   
 
 const menu = document.getElementById("menu-convenios");
-  select.addEventListener("change", () => {
+  menu.addEventListener("change", () => {
     const indiceSeleccionado = menu.selectedIndex;
     const valorSeleccionado = menu.value;
     console.log(indiceSeleccionado + valorSeleccionado);
