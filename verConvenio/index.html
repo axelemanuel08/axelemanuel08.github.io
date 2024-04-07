@@ -13,15 +13,13 @@
     <main>
         <button id="openModal">Ayuda</button>
         <section class="search-section">
-            <div class="search-container">
-                <label>Ingrese el nombre del pais:</label>
-                <input id="searchInput" type="text" onInput="onChangeValue()" placeholder="Buscar país..."/>
-            </div>
-            <div class="result-container">
-                <table id="resultTable"></table>
-                <p id="reference-link">Ver <a href="" id="reference" target="_blank" >referencia</a></p>
-            </div>
-            <input type="button" value="Volver" onclick="window.location.href='../index.html';">
+            <select name="pais">
+            <option value="tft">TFT</option>
+            <option value="ocde">OCDE</option>
+            <option value="tvf">TVF</option>
+            <option value="chileargentina">Chile-Argentina</option>
+            <option value="sanborja">San Borja</option>
+        </select>
         </section>
         <footer>
             <p id="sign">Desarrollado por ****</p>
