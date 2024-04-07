@@ -20,7 +20,7 @@ window.addEventListener('click', (event) => {
 });   
 
 
-const onChange = (menu) => {
+const onChange = () => {
   console.log(menu.value);
   console.log(menu.selectedIndex);
 }
