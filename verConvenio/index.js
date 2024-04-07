@@ -1,6 +1,7 @@
 const openModalButton = document.getElementById('openModal');
 const modal = document.getElementById('modal');
 const closeModalButton = document.getElementById('close-modal');
+const menu = document.getElementById("menu-convenios");
 
 openModalButton.addEventListener('click', () => {
   console.log("abriendo");
@@ -18,9 +19,8 @@ window.addEventListener('click', (event) => {
   }
 });   
 
-const menu = document.getElementById("menu-convenios");
 
-const onChange = () => {
+const onChange = (menu) => {
   console.log(menu.value);
   console.log(menu.selectedIndex);
 }
