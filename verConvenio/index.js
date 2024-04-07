@@ -22,5 +22,5 @@ const menu = document.getElementById("menu-convenios");
   select.addEventListener("change", () => {
     const indiceSeleccionado = menu.selectedIndex;
     const valorSeleccionado = menu.value;
-    console.log(`Índice: ${indiceSeleccionado}, Valor: ${valorSeleccionado}`);
+    console.log(indiceSeleccionado + valorSeleccionado);
   });
