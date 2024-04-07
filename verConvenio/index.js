@@ -21,6 +21,6 @@ window.addEventListener('click', (event) => {
 const menu = document.getElementById("menu-convenios");
 
 const onChange = () => {
+  console.log(menu.value);
   console.log(menu.selectedIndex);
-  
 }
