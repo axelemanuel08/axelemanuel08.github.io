@@ -21,6 +21,14 @@ window.addEventListener('click', (event) => {
 
 
 const onChange = () => {
-  console.log(menu.value);
-  console.log(menu.selectedIndex);
+  switch(menu.value){
+    case "tft":
+      console.log("elegiste tft");
+      break;
+    case "ocde":
+      console.log("elegiste ocde");
+      break;
+    default:
+      console.log("elige una opcion");
+  }
 }
