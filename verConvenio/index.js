@@ -28,6 +28,15 @@ const onChange = () => {
     case "ocde":
       console.log("elegiste ocde");
       break;
+    case "tvf":
+      console.log("elegiste ocde");
+      break;
+    case "sanborja":
+      console.log("elegiste ocde");
+      break;
+    case "chileargentina":
+      console.log("elegiste ocde");
+      break;
     default:
       console.log("elige una opcion");
   }
