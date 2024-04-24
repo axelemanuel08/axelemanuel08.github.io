@@ -21,21 +21,27 @@ window.addEventListener('click', (event) => {
 
 
 const onChange = () => {
+  let string
   switch(menu.value){
     case "tft":
       console.log("elegiste tft");
+      string = "";
       break;
     case "ocde":
       console.log("elegiste ocde");
+      string = "";
       break;
     case "tvf":
       console.log("elegiste ocde");
+      string = "";
       break;
     case "sanborja":
       console.log("elegiste ocde");
+      string = "";
       break;
     case "chileargentina":
       console.log("elegiste ocde");
+      string = "";
       break;
     default:
       console.log("elige una opcion");

@@ -2,7 +2,6 @@ const openModalButton = document.getElementById('openModal');
 const modal = document.getElementById('modal');
 const closeModalButton = document.getElementById('close-modal');
 
-//Manejadores de eventos
 openModalButton.addEventListener('click', () => {
   console.log("abriendo");
   modal.style.display = 'block';
@@ -12,34 +11,13 @@ closeModalButton.addEventListener('click', () => {
   modal.style.display = 'none';
 });
 
-//Cerrar el modal cuando se hace click fuera
+// Opcional: Cerrar el modal cuando se hace click fuera
 window.addEventListener('click', (event) => {
   if (event.target === modal) {
     modal.style.display = 'none';
   }
 });
 
-const dateIn1 = document.getElementById("dateIn1");
-const dateOut1 = document.getElementById("dateOut1");
-const errDateIn1 = document.getElementById("errDateIn1");
-const errDateOut1 = document.getElementById("errDateOut1");
-
-dateIn1.addEventListener("change", () => {
-  //Primero eliminar mensajes existentes
-  errDateIn1.textContent = "";
-
-  isOlderThanToday(dateIn1) ? errDateIn1.textContent = "La fecha ingresada es posterior al dia de hoy, esta intentando crear un transito a futuro en lugar de cotejar el existente." : null;
-})
-dateOut1.addEventListener("change", () => {
-  errDateOut1.textContent = "";
-  isOlderThanToday(dateOut1) ? errDateOut1.textContent = "La fecha ingresada es posterior al dia de hoy, esta intentando crear un transito a futuro en lugar de cotejar el existente." : null;
-})
-
-const isOlderThanToday = (dateElement) => {
-  const today = new Date();
-  const date = new Date(dateElement.value);
-  return today <= date ? true : false;
-}
 
 //Contador de transitos
 let dates = 1;
@@ -47,8 +25,6 @@ let dates = 1;
 //Funcion para agregar nuevos campos para nuevos transitos
 const addDate = () => {
   dates++;
-  //Mejorar la estructura semantica de los nuevos transitos
-  
   //Contenedor de transitos adicionales
   const aditionalDate = document.getElementById("aditional-date");
 
@@ -59,9 +35,6 @@ const addDate = () => {
   const dateIn = document.createElement("input");
   dateIn.setAttribute("type", "date");
   dateIn.setAttribute("id", `dateIn${dates}`); // Asignando ID unico
-  const errDateIn = document.createElement("p");
-  errDateIn.setAttribute("id", `errDateIn${dates}`);
-
 
   //Elemento transito egreso
   const labelDateOut = document.createElement("p");
@@ -70,27 +43,13 @@ const addDate = () => {
   const dateOut = document.createElement("input");
   dateOut.setAttribute("type", "date");
   dateOut.setAttribute("id", `dateOut${dates}`); // Asignando ID unico
-  const errDateOut = document.createElement("p");
-  errDateOut.setAttribute("id", `errDateOut${dates}`);
 
   //Agregar ambos al DOM
   aditionalDate.appendChild(labelDateIn);
   aditionalDate.appendChild(dateIn);
-  aditionalDate.appendChild(errDateIn);
   aditionalDate.appendChild(labelDateOut);
   aditionalDate.appendChild(dateOut);
-  aditionalDate.appendChild(errDateOut);
 
-
-  //Añadir los manejadores de eventos
-  dateIn.addEventListener("change", () => {
-    errDateIn.textContent = "";
-    isOlderThanToday(dateIn) ? errDateIn.textContent = "La fecha ingresada es posterior al dia de hoy, esta intentando crear un transito a futuro en lugar de cotejar el existente." : null;
-  })
-  dateOut.addEventListener("change", () => {
-    errDateOut.textContent = "";
-    isOlderThanToday(dateOut) ? errDateOut.textContent = "La fecha ingresada es posterior al dia de hoy, esta intentando crear un transito a futuro en lugar de cotejar el existente." : null;
-  })
 };
 
 

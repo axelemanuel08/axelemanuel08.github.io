@@ -1,4 +1,4 @@
-ra<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -14,17 +14,20 @@ ra<!DOCTYPE html>
             <article>
                 <label class="label" for="dateIn1" >Fecha de Ingreso:</label>
                 <input type="date" id="dateIn1">
-                <p id="errDateIn1"></p>
             </article>
             <article>
                 <label class="label"for="dateOut1" >Fecha de Salida:</label>
                 <input type="date" id="dateOut1">
-                <p id="errDateOut1"></p>
             </article>
             <div id="aditional-date">
             </div>
             <button type="button" onClick="addDate()">Agregar transito</button>
             <button id="calculardias" type="button" onclick="onCountDays()">Calcular</button>
+            <span id="errormsg">
+                <p id="error1"></p>
+                <p id="error3"></p>
+                <p id="error2"></p>
+            </span><br>
             <span id="mensaje1"></span>
         </section>
         <section class="calculatedate">
