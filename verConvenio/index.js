@@ -24,23 +24,18 @@ const onChange = () => {
   switch(menu.value){
     case "tft":
       console.log("elegiste tft");
-      const string = "";
       break;
     case "ocde":
       console.log("elegiste ocde");
-      const string = "";
       break;
     case "tvf":
       console.log("elegiste ocde");
-      const string = "";
       break;
     case "sanborja":
       console.log("elegiste ocde");
-      const string = "";
       break;
     case "chileargentina":
       console.log("elegiste ocde");
-      const string = "";
       break;
     default:
       console.log("elige una opcion");
