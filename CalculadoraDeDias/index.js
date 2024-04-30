@@ -2,77 +2,169 @@ const openModalButton = document.getElementById('openModal');
 const modal = document.getElementById('modal');
 const closeModalButton = document.getElementById('close-modal');
 
-openModalButton.addEventListener('click', () => {
-  console.log("abriendo");
-  modal.style.display = 'block';
-});
+const containerDateIn = document.getElementById("containerDateIn1");
+const dateIn1 = document.getElementById("dateIn1");
+//agarro el elemento div
+const dinamicErrorIn = document.getElementById("dinamicErrorIn1");
+const containerDateOut = document.getElementById("containerDateOut1");
+const dateOut1 = document.getElementById("dateOut1");
+const dinamicErrorOut = document.getElementById("dinamicErrorOut1");
+const messageDisplay = document.getElementById("messageDisplay");
+const errorContainer = document.getElementById("errormsg");
+const message = document.getElementById("mensaje1");
 
-closeModalButton.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
+//Contenedor de transitos adicionales
+const counterDays = document.getElementById("counterday");
 
-// Opcional: Cerrar el modal cuando se hace click fuera
-window.addEventListener('click', (event) => {
-  if (event.target === modal) {
-    modal.style.display = 'none';
+//Objeto Data
+let data = {
+  entries : 1,
+  transits : [[null,null],[null,null]],
+  today : new Date(),
+};
+
+const isLaterThanToday = (date) => {
+  return date > data.today ? true : false;
+}
+
+const isLaterThanADate = (date1, date2) => {
+  return date1 > date2 ? true : false;
+}
+
+const isTransitCompleted = () => {
+  //
+}
+
+const isOverlapping = (date, data) => {
+  for (let index = 1; index < data.length; index++){
+    console.log(index);
+    const transit = data[index];
+    if(transit[0]==null | transit[1]==null){
+      console.log("transito sin cerrar");
+    }else{
+      console.log("hay un transito cerrado, verificando");
+      if(date > transit[0] && date < transit[1]){
+        console.log("hay superposicion");
+        return true;
+      }else{
+        console.log("sin superposicion")
+      }
+    }
   }
-});
+  return false;
+}
 
+const errHandler = (event, errElement) => {
+  console.log("Hubo un cambio");
+  errElement.textContent = "";
+  const date = new Date(event.target.value);
+  let ok = 0;
+  isNaN(date.getTime()) ? (errElement.textContent = "La fecha no es valida") : ok++;
+  isLaterThanToday(date) ? (errElement.textContent = "La fecha ingresada es posterior a hoy") : ok++;
+  console.log(isOverlapping(date, data.transits));
+  isOverlapping(date, data.transits) ? (errElement.textContent = "Hay alguna superposicion") : ok++;
+  return ok == 3 ? true : false;
+}
 
-//Contador de transitos
-let dates = 1;
+const displayErrorMsg = (container, msg) => {
+  const p = document.createElement("p");
+  p.textContent = msg;
+  container.appendChild(p);
+}
 
 //Funcion para agregar nuevos campos para nuevos transitos
 const addDate = () => {
-  dates++;
+  data.entries++;
+  const transit = data.entries;
   //Contenedor de transitos adicionales
-  const aditionalDate = document.getElementById("aditional-date");
-
+  const transitContainer = document.createElement("article");
+  transitContainer.setAttribute("id", `transit${data.entries}`);
+  counterDays.appendChild(transitContainer);
+  //contenedor de cada transito
+  transitContainer.setAttribute("id", `transit${data.entries}`)
   //Elemento transito ingreso
-  const labelDateIn = document.createElement("p");
-  labelDateIn.textContent = "Fecha de " + dates + " Ingreso:";
+  const dateContainerIn = document.createElement("div");
+  dateContainerIn.setAttribute("class", "date-container")
+  const labelDateIn = document.createElement("label");
+  labelDateIn.textContent = "Fecha de " + data.entries + " Ingreso:";
   labelDateIn.setAttribute("class", "label");
+  labelDateIn.setAttribute("for",`dateIn${data.entries}`)
   const dateIn = document.createElement("input");
   dateIn.setAttribute("type", "date");
-  dateIn.setAttribute("id", `dateIn${dates}`); // Asignando ID unico
-
+  dateIn.setAttribute("id", `dateIn${data.entries}`); // Asignando ID unico
+  const errDateIn = document.createElement("p");
+  errDateIn.setAttribute("id",`dinamicErrorIn${data.entries}`)
   //Elemento transito egreso
-  const labelDateOut = document.createElement("p");
-  labelDateOut.textContent = "Fecha de " + dates + " Salida:";
+  const dateContainerOut = document.createElement("div");
+  dateContainerOut.setAttribute("class", "date-container")
+  const labelDateOut = document.createElement("label");
+  labelDateOut.textContent = "Fecha de " + data.entries + " Salida:";
   labelDateOut.setAttribute("class", "label");
+  labelDateOut.setAttribute("for",`dateOut${data.entries}`)
   const dateOut = document.createElement("input");
   dateOut.setAttribute("type", "date");
-  dateOut.setAttribute("id", `dateOut${dates}`); // Asignando ID unico
+  dateOut.setAttribute("id", `dateOut${data.entries}`); // Asignando ID unico
+  const errDateOut = document.createElement("p");
+  errDateOut.setAttribute("id",`dinamicErrorOut${data.entries}`)
 
   //Agregar ambos al DOM
-  aditionalDate.appendChild(labelDateIn);
-  aditionalDate.appendChild(dateIn);
-  aditionalDate.appendChild(labelDateOut);
-  aditionalDate.appendChild(dateOut);
 
+  transitContainer.appendChild(dateContainerIn);
+  dateContainerIn.appendChild(labelDateIn);
+  dateContainerIn.appendChild(dateIn);
+  dateContainerIn.appendChild(errDateIn);
+  
+  
+  transitContainer.appendChild(dateContainerOut);
+  dateContainerOut.appendChild(labelDateOut);
+  dateContainerOut.appendChild(dateOut);
+  dateContainerOut.appendChild(errDateOut);
+
+  //Agregar Dato
+  const localData = [
+    null,
+    null
+  ];
+  data.transits.push(localData);
+
+  //Errores dinamicos
+  dateIn.addEventListener("change", (event) => {
+    if(errHandler(event,errDateIn)) {
+      data.transits[transit][0] = new Date(event.target.value);
+     }else{
+      data.transits[transit][0] = null;
+     }
+    console.log(transit);
+    console.log(data.transits);
+  })
+
+  dateOut.addEventListener("change", (event) => {
+    if(errHandler(event,errDateOut)) {
+      data.transits[transit][1] = new Date(event.target.value);
+     }else{
+      data.transits[transit][1] = null;
+     }
+    console.log(transit);
+    console.log(data.transits);
+  })
 };
 
-
-
-//Funcion para contar los dias
+//Funciones para contar los dias
 const onCountDays = () => {
+  //Limpiar mensajes anteriores
+  messageDisplay.style.display = "none";
+  errorContainer.innerHTML = "";
+  message.textContent = "";
   //Variable contenedora de los dias
   let totalDays = 0;
   //Elemento que desplegará los mensajes necesarios para informar al usuario sobre el funcionamiento
-  const errormsg = document.getElementById("errormsg");
-  const message = document.getElementById("mensaje1");
-
-  //mensajes a desplegar
-  const error1 = document.getElementById("error1");
-  const error2 = document.getElementById("error2");
-  const error3 = document.getElementById("error3");
-
-  error1.textContent = "";
-  error2.textContent = "";
-  error3.textContent = "";
   
-  //Iteracion sobre los transitos existentes
-  for (let i = 1; i <= dates; i++) {
+  if(false){
+  }else{
+     //Iteracion sobre los transitos existentes
+     
+  console.log(Object.entries);
+  for (let i = 1; i <= data.entries; i++) {
     //Obtener los datos de las fechas
     const dateIn = document.getElementById(`dateIn${i}`).value;
     const dateOut = document.getElementById(`dateOut${i}`).value;
@@ -86,8 +178,7 @@ const onCountDays = () => {
       //Si no hay nada dentro
       if (isNaN(date1.getTime()) || isNaN(date2.getTime())) {
         //Informamos del error de datos
-        errormsg.appendChild(error1);
-        error1.textContent = "Fechas inválidas en el transito " + i + " , debe ingresar una fecha valida";
+        displayErrorMsg(errorContainer,"Fechas inválidas en el transito " + i + " , debe ingresar una fecha valida");
         //Continuamos con la siguiente iteracion
         continue; 
       }
@@ -100,8 +191,7 @@ const onCountDays = () => {
         totalDays += 1;
         //Si la diferencia es negativa
       } else if (differenceInMilliseconds < 1) {
-        errormsg.appendChild(error2);
-        error2.textContent = "Error al seleccionar las fechas en el transito " + i + ", la diferencia es negativa";
+        displayErrorMsg(errorContainer, "Error al seleccionar las fechas en el transito " + i + ", la diferencia es negativa");
         //Si la diferencia es positiva
       } else {
         //Calculamos a cuantos dias equivalen
@@ -111,19 +201,20 @@ const onCountDays = () => {
       }
     //Si no existen
     } else {
-      errormsg.appendChild(error3);
-      error3.textContent = "Faltan fechas en el transito " + i;
+      displayErrorMsg(errorContainer, "Faltan fechas en el transito " + i);
     }
   }
   //Mensaje final
   message.textContent = "Cantidad de dias dentro del pais: " + totalDays;
+  }
+  messageDisplay.style.display = "block";
 };
 
 const onCalculateDate = () => {
     const input = document.getElementById("days").value;
     const today = new Date();
     const message = document.getElementById("mensaje2");
-    const days = Number.parseInt(input);
+    const days = Number.parseInt(input);  
 
     if (isNaN(days) || days < 1) {
         message.textContent = "No es un número válido";
@@ -176,3 +267,44 @@ const onCountVisa = () => {
   // Mostrar la fecha limite de la permanencia
   message.textContent = "La permanencia vence el " + formattedDepartureDate;
 };
+
+/*-----------------------------------------------------------
+Event Listeners
+-----------------------------------------------------------*/
+
+openModalButton.addEventListener('click', () => {
+  console.log("abriendo");
+  modal.style.display = 'block';
+});
+
+closeModalButton.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+//Cerrar el modal cuando se hace click fuera
+window.addEventListener('click', (event) => {
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+});
+
+//Errores dinamicos
+dateIn1.addEventListener("change", (event) => {
+  if(errHandler(event,dinamicErrorIn)) {
+    data.transits[1][0] = new Date(event.target.value);
+   }else{
+    data.transits[1][0] = null;
+   }
+  console.log(data.transits);
+})
+
+dateOut1.addEventListener("change", (event) => {
+  if(errHandler(event,dinamicErrorOut)) {
+    data.transits[1][1] = new Date(event.target.value);
+   }else{
+    data.transits[1][1] = null;
+   }
+  console.log(data.transits);
+})
+
+console.log(data);

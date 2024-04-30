@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0;
+    background-color: #343232;
     margin: 0;
     padding: 0;
     display: flex;
@@ -10,80 +10,92 @@ body {
 }
 
 main {
-    width: 100%;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
     max-width: 600px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
+    background-color: #443939;
+    border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 section {
-    margin-bottom: 50px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 h3 {
+    margin: 20px;
     text-align: center;
-    color: #007bff;
+    color: #868a8f;
 }
 
 article {
+    margin: 20px;
+    background-color: #98b2ce;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+div {
+    margin: 20px;
+    width: 40%;
+}
+
+.date-container {
+    margin: 20px;
+    background-color: #d9534f;
+    width: 50%;
+    height: 100px;
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .label {
     font-weight: bold;
-    color: #007bff;
+    color: #264567;
 }
 
-input, button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
+p {
+    font-size: 16px;
+    margin: 0;
+}
+
+input {
+    width: 50%;
+    height: 30px;
+    background-color: #4a5969;
+    color: #b4bbc3;
+    border: 1px solid #5d5c5c;
     border-radius: 5px;
     box-sizing: border-box;
 }
 
 button {
-    background-color: #007bff;
-    color: #fff;
+    margin: 20px;
+    width: 35%;
+    height: 50px;
+    background-color: #3d638b;
+    color: #d6d6d6;
     cursor: pointer;
-    transition: background-color 0.3s;
+    border: 1px solid #5d5c5c;
+    border-radius: 5px;
+    transition: background-color 0.4s;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #98b2ce;
+    color:#4b525a
 }
 
 #mensaje1, #mensaje2 {
     margin-top: 10px;
     color: #d9534f;
-}
-
-/* Estilo específico para los input de tipo date */
-input[type="date"] {
-    width: calc(100% - 22px); /* Ajuste para el padding */
-    padding: 8px;
-}
-
-input[type="button"] {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #333;
-    border-radius: 5px;
-    background-color: #333;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    display: block; /* Añadido para corregir la alineación */
-    margin: 0 auto; /* Añadido para centrar el botón */
-}
-
-input[type="button"]:hover {
-    background-color: #555;
 }
 
 @media screen and (min-width: 600px) {
@@ -92,6 +104,17 @@ input[type="button"]:hover {
     }
 }
 
+#messageDisplay {
+    display: none;
+}
+
+#button-section {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/*Modal*/
 #openModal {
     width: 80px;
     padding: 10px 20px;
