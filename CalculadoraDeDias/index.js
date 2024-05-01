@@ -158,7 +158,7 @@ const onCountVisa = () => {
     //Continuamos con la siguiente iteracion
     return; 
   }
-
+  //
   //Para los pesados
   if((desdeVisa.getTime() - 1672531200000) <= 0){
     console.log("Ingreso");
