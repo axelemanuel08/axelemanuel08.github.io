@@ -1,10 +1,8 @@
 const openModalButton = document.getElementById('openModal');
 const modal = document.getElementById('modal');
 const closeModalButton = document.getElementById('close-modal');
-
 const containerDateIn = document.getElementById("containerDateIn1");
 const dateIn1 = document.getElementById("dateIn1");
-//agarro el elemento div
 const dinamicErrorIn = document.getElementById("dinamicErrorIn1");
 const containerDateOut = document.getElementById("containerDateOut1");
 const dateOut1 = document.getElementById("dateOut1");
@@ -16,35 +14,97 @@ const message = document.getElementById("mensaje1");
 //Contenedor de transitos adicionales
 const counterDays = document.getElementById("counterday");
 
-//Objeto Data
-let data = {
-  entries : 1,
-  transits : [[null,null],[null,null]],
-  today : new Date(),
-};
+class Transit {
+  constructor(transitNumber) {
+    this.transitNumber = transitNumber;
+    this.entry = null;
+    this.exit = null;
+  }
+  getEntry() {
+    return this.entry;
+  }
+  setEntry(entry) {
+    this.entry = entry;
+  }
+  getExit() {
+    return this.exit;
+  }
+  setExit(exit) {
+    this.exit = exit;
+  }
+}
+
+class Data {
+  constructor(){
+    this.records = 1;
+    this.transits = [new Transit(0),new Transit(1)],
+    this.today = new Date;
+  }
+
+  getRecords(){
+    return this.records;
+  }
+
+  addRecord(){
+    this.records++;
+    this.transits.push(new Transit(this.records));
+  }
+
+  getTransits(){
+    return this.transits;
+  }
+
+  getATransit(transitNumber){
+    if(this.transits[transitNumber]){
+      return this.transits[transitNumber]
+    }
+    return false;
+  }
+
+  getToday(){
+    return this.today;
+  }
+}
+
+const data = new Data();
+
 
 const isLaterThanToday = (date) => {
-  return date > data.today ? true : false;
+  console.log(date);
+  console.log(data.getToday())
+  return date > data.getToday() ? true : false;
 }
 
-const isLaterThanADate = (date1, date2) => {
-  return date1 > date2 ? true : false;
+const isRightPlaced = (date, transit, errElement) => {
+  errElement.textContent = "";
+  if(transit.getEntry() != null) {
+    //Si entrada tiene algo significa que es salida comparemos
+    if (date < transit.getEntry()){
+      errElement.textContent = "La fecha es anterior al ingreso";
+    };
+  }
+  if(transit.getExit() != null){
+    //Si salida tiene algo significa que es entrada
+    if(date > transit.getExit()){
+      errElement.textContent = "La fecha es posterior al egreso"
+    }
+  }
+  //Si no tiene ninguno no tiene sentido comparar
+  return true;
 }
 
-const isTransitCompleted = () => {
-  //
+const isTransitCompleted = (transit) => {
+  return transit.getEntry() != null && transit.getExit() != null;
 }
 
-const isOverlapping = (date, data) => {
-  for (let index = 1; index < data.length; index++){
-    console.log(index);
-    const transit = data[index];
-    if(transit[0]==null | transit[1]==null){
+const isOverlapping = (date, errElement) => {
+  for (let index = 1; index < data.getRecords(); index++){
+    if(!isTransitCompleted(data.getATransit(index))){
       console.log("transito sin cerrar");
     }else{
       console.log("hay un transito cerrado, verificando");
-      if(date > transit[0] && date < transit[1]){
-        console.log("hay superposicion");
+      if(date > data.getATransit(index).getEntry() && date < data.getATransit(index).getExit()){
+        errElement.textContent = "Hay superposicion con el transito " + index;
         return true;
       }else{
         console.log("sin superposicion")
@@ -54,16 +114,27 @@ const isOverlapping = (date, data) => {
   return false;
 }
 
-const errHandler = (event, errElement) => {
-  console.log("Hubo un cambio");
+const errHandler = (event, errElement, transit) => {
   errElement.textContent = "";
   const date = new Date(event.target.value);
-  let ok = 0;
-  isNaN(date.getTime()) ? (errElement.textContent = "La fecha no es valida") : ok++;
-  isLaterThanToday(date) ? (errElement.textContent = "La fecha ingresada es posterior a hoy") : ok++;
-  console.log(isOverlapping(date, data.transits));
-  isOverlapping(date, data.transits) ? (errElement.textContent = "Hay alguna superposicion") : ok++;
-  return ok == 3 ? true : false;
+  if(isNaN(date.getTime())){
+    (errElement.textContent = "La fecha no es valida");
+    return false;
+  }
+  if(isLaterThanToday(date)){
+    (errElement.textContent = "La fecha ingresada es posterior a hoy");
+    return false;
+  }
+
+  if(!isRightPlaced(date, transit, errElement)){
+    return false;
+  }
+
+  if(isOverlapping(date, errElement)) {
+    return false;
+  }
+  console.log(data.getTransits());
+  return true;
 }
 
 const displayErrorMsg = (container, msg) => {
@@ -74,38 +145,38 @@ const displayErrorMsg = (container, msg) => {
 
 //Funcion para agregar nuevos campos para nuevos transitos
 const addDate = () => {
-  data.entries++;
-  const transit = data.entries;
+  data.addRecord();
+  const transit = data.getATransit(data.getRecords());
   //Contenedor de transitos adicionales
   const transitContainer = document.createElement("article");
-  transitContainer.setAttribute("id", `transit${data.entries}`);
+  transitContainer.setAttribute("id", `transit${data.getRecords()}`);
   counterDays.appendChild(transitContainer);
   //contenedor de cada transito
-  transitContainer.setAttribute("id", `transit${data.entries}`)
+  transitContainer.setAttribute("id", `transit${data.getRecords()}`)
   //Elemento transito ingreso
   const dateContainerIn = document.createElement("div");
   dateContainerIn.setAttribute("class", "date-container")
   const labelDateIn = document.createElement("label");
-  labelDateIn.textContent = "Fecha de " + data.entries + " Ingreso:";
+  labelDateIn.textContent = "Fecha de " + data.getRecords() + " Ingreso:";
   labelDateIn.setAttribute("class", "label");
-  labelDateIn.setAttribute("for",`dateIn${data.entries}`)
+  labelDateIn.setAttribute("for",`dateIn${data.getRecords()}`)
   const dateIn = document.createElement("input");
   dateIn.setAttribute("type", "date");
-  dateIn.setAttribute("id", `dateIn${data.entries}`); // Asignando ID unico
+  dateIn.setAttribute("id", `dateIn${data.getRecords()}`); // Asignando ID unico
   const errDateIn = document.createElement("p");
-  errDateIn.setAttribute("id",`dinamicErrorIn${data.entries}`)
+  errDateIn.setAttribute("id",`dinamicErrorIn${data.getRecords()}`)
   //Elemento transito egreso
   const dateContainerOut = document.createElement("div");
   dateContainerOut.setAttribute("class", "date-container")
   const labelDateOut = document.createElement("label");
-  labelDateOut.textContent = "Fecha de " + data.entries + " Salida:";
+  labelDateOut.textContent = "Fecha de " + data.getRecords() + " Salida:";
   labelDateOut.setAttribute("class", "label");
-  labelDateOut.setAttribute("for",`dateOut${data.entries}`)
+  labelDateOut.setAttribute("for",`dateOut${data.getRecords()}`)
   const dateOut = document.createElement("input");
   dateOut.setAttribute("type", "date");
-  dateOut.setAttribute("id", `dateOut${data.entries}`); // Asignando ID unico
+  dateOut.setAttribute("id", `dateOut${data.getRecords()}`); // Asignando ID unico
   const errDateOut = document.createElement("p");
-  errDateOut.setAttribute("id",`dinamicErrorOut${data.entries}`)
+  errDateOut.setAttribute("id",`dinamicErrorOut${data.getRecords()}`)
 
   //Agregar ambos al DOM
 
@@ -119,33 +190,21 @@ const addDate = () => {
   dateContainerOut.appendChild(labelDateOut);
   dateContainerOut.appendChild(dateOut);
   dateContainerOut.appendChild(errDateOut);
-
-  //Agregar Dato
-  const localData = [
-    null,
-    null
-  ];
-  data.transits.push(localData);
+  
 
   //Errores dinamicos
   dateIn.addEventListener("change", (event) => {
-    if(errHandler(event,errDateIn)) {
-      data.transits[transit][0] = new Date(event.target.value);
-     }else{
-      data.transits[transit][0] = null;
-     }
-    console.log(transit);
-    console.log(data.transits);
+    transit.setEntry(null);
+    if(errHandler(event,errDateIn,transit)) {
+      transit.setEntry(new Date(event.target.value));
+    }
   })
 
   dateOut.addEventListener("change", (event) => {
-    if(errHandler(event,errDateOut)) {
-      data.transits[transit][1] = new Date(event.target.value);
-     }else{
-      data.transits[transit][1] = null;
+    transit.setExit(null);
+    if(errHandler(event,errDateOut,transit)) {
+      transit.setExit(new Date(event.target.value));
      }
-    console.log(transit);
-    console.log(data.transits);
   })
 };
 
@@ -164,7 +223,7 @@ const onCountDays = () => {
      //Iteracion sobre los transitos existentes
      
   console.log(Object.entries);
-  for (let i = 1; i <= data.entries; i++) {
+  for (let i = 1; i <= data.records; i++) {
     //Obtener los datos de las fechas
     const dateIn = document.getElementById(`dateIn${i}`).value;
     const dateOut = document.getElementById(`dateOut${i}`).value;
@@ -290,21 +349,17 @@ window.addEventListener('click', (event) => {
 
 //Errores dinamicos
 dateIn1.addEventListener("change", (event) => {
-  if(errHandler(event,dinamicErrorIn)) {
-    data.transits[1][0] = new Date(event.target.value);
-   }else{
-    data.transits[1][0] = null;
+  data.getATransit(1).setEntry(null);
+  if(errHandler(event,dinamicErrorIn,data.getATransit(1))) {
+    data.getATransit(1).setEntry(new Date(event.target.value));
    }
-  console.log(data.transits);
+   console.log(data);
 })
 
 dateOut1.addEventListener("change", (event) => {
-  if(errHandler(event,dinamicErrorOut)) {
-    data.transits[1][1] = new Date(event.target.value);
-   }else{
-    data.transits[1][1] = null;
+  data.getATransit(1).setExit(null);
+  if(errHandler(event,dinamicErrorOut,data.getATransit(1))) {
+    data.getATransit(1).setExit(new Date(event.target.value));
    }
-  console.log(data.transits);
+   console.log(data);
 })
-
-console.log(data);
