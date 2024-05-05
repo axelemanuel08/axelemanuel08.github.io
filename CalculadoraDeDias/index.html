@@ -9,48 +9,55 @@
 <body>
     <main>
         <button id="openModal">Ayuda</button>
-        <section class="counterday">
+        <section id="counterday">
             <h3 id="contardias-title">Contar dias de permanencia</h3>
-            <article>
-                <label class="label" for="dateIn1" >Fecha de Ingreso:</label>
-                <input type="date" id="dateIn1">
+            <article id="transit1">
+                <div class="date-container" id="containerDateIn1">
+                    <label class="label" for="dateIn1">Fecha de Ingreso:</label>
+                    <input type="date" id="dateIn1">
+                    <p id="dinamicErrorIn1"></p>
+                </div>
+                <div class="date-container" id="containerDateOut1">
+                    <label class="label"for="dateOut1" >Fecha de Salida:</label>
+                    <input type="date" id="dateOut1">
+                    <p id="dinamicErrorOut1"></p>
+                </div>
             </article>
-            <article>
-                <label class="label"for="dateOut1" >Fecha de Salida:</label>
-                <input type="date" id="dateOut1">
-            </article>
-            <div id="aditional-date">
-            </div>
-            <button type="button" onClick="addDate()">Agregar transito</button>
-            <button id="calculardias" type="button" onclick="onCountDays()">Calcular</button>
-            <span id="errormsg">
-                <p id="error1"></p>
-                <p id="error3"></p>
-                <p id="error2"></p>
-            </span><br>
+        </section>
+        <section id="messageDisplay">
+            <div id="errormsg"></div><br>
             <span id="mensaje1"></span>
         </section>
-        <section class="calculatedate">
+        <section id="button-section">
+            <button type="button" onClick="addDate()">Agregar transito</button>
+            <button type="button" onclick="onCountDays()">Calcular</button>
+        </section>
+        <section>
             <h3 id="calcularfecha-title">Calcular la fecha de permanencia contando desde hoy</h3>
-            <article>
-                <label for="days" id="days-label">Cantidad de dias</label>
+            <article id="calculatedate">
+                <label for="days" id="days-label">Cantidad de dias remanentes:</label>
                 <input id="days" type="text">
             </article>
             <button id="calcularfecha" type="button" onclick="onCalculateDate()">Calcular</button>
             <span id="mensaje2"></span>
         </section>
         <section>
-            <article>
-                <p class="label">Calcular permanencia desde el primer ingreso</p>
-                <p class="label">Ingresar Fecha:</p>
-                <input id="desdeVisa" type="date" />
-                <p class="label">Ingrese la cantidad de dias:</p>
-                <input id="hastaVisa" type="text"/>
-                <button id="calcularVisa" type="button" onclick="onCountVisa()">Calcular</button>
-                <p id="mensaje3"></p>
+            <h3>Calcular permanencia desde el primer ingreso</h3>
+            <article id="permanenciaIngreso">
+                <div id="fechaIngreso">
+                    <label >Fecha de Ingreso:</label>
+                    <input id="desdeVisa" type="date" />
+                </div>
+                <div id="cantidadDiasPermanencia">
+                    <label >Cantidad de dias de permanencia:</label>
+                    <input id="hastaVisa" type="text"/>
+                </div>
             </article>
+            
+            <p id="mensaje3"></p>
+            <button id="calcularVisa" type="button" onclick="onCountVisa()">Calcular</button>
         </section>
-        <input type="button" value="Volver" onclick="window.location.href='../entrada.html';">
+        <button id="volver" onclick="window.location.href='../entrada.html';">Volver</button>
         <div id="modal" class="modal">
             <div class="modal-content">
               <h2 id="modal-title">¿Como usar la herramienta?</h2>
@@ -61,7 +68,7 @@
               <p></p>
               <button id="close-modal">Cerrar</button>
             </div>
-          </div>
+        </div>
     </main>
     <script src="index.js"></script> 
 </body>
