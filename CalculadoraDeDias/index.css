@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #343232;
+    background-color: #020265;
     margin: 0;
     padding: 0;
     display: flex;
@@ -15,9 +15,9 @@ main {
     flex-direction: column;
     width: 80%;
     max-width: 600px;
-    background-color: #443939;
+    background-color: #373769;
     border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 10px 5px #000000
 }
 
 section {
@@ -29,12 +29,15 @@ section {
 h3 {
     margin: 20px;
     text-align: center;
-    color: #868a8f;
+    color: #e7ecff;
 }
 
 article {
     margin: 20px;
-    background-color: #98b2ce;
+    height: 160px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: #5289c3;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -43,34 +46,38 @@ article {
 div {
     margin: 20px;
     width: 40%;
+    border-radius: 10px;
 }
 
 .date-container {
     margin: 20px;
-    background-color: #d9534f;
+    background-color: #272d9e;
     width: 50%;
-    height: 100px;
+    height: 120px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 }
 
-.label {
+label {
+    margin: 5px;
     font-weight: bold;
-    color: #264567;
+    color: #bdddff;
 }
 
 p {
     font-size: 16px;
-    margin: 0;
+    margin: 5px;
+    height: 18px;
+    color: rgb(252, 112, 112);
 }
 
 input {
     width: 50%;
     height: 30px;
-    background-color: #4a5969;
-    color: #b4bbc3;
+    background-color: #3498db;
+    color: #ffffff;
     border: 1px solid #5d5c5c;
     border-radius: 5px;
     box-sizing: border-box;
@@ -80,17 +87,22 @@ button {
     margin: 20px;
     width: 35%;
     height: 50px;
-    background-color: #3d638b;
-    color: #d6d6d6;
+    background-color: #3498db;
+    color: #ffffff;
     cursor: pointer;
-    border: 1px solid #5d5c5c;
-    border-radius: 5px;
+    border: 1px solid #000000;
+    border-radius: 10px;
     transition: background-color 0.4s;
+    align-self: center;
 }
 
 button:hover {
-    background-color: #98b2ce;
-    color:#4b525a
+    background-color: #77b9e4;
+    color:#ffffff
+}
+
+#messageDisplay {
+    display: none;
 }
 
 #mensaje1, #mensaje2 {
@@ -98,15 +110,6 @@ button:hover {
     color: #d9534f;
 }
 
-@media screen and (min-width: 600px) {
-    main {
-        max-width: 800px;
-    }
-}
-
-#messageDisplay {
-    display: none;
-}
 
 #button-section {
     width: 100%;
@@ -114,19 +117,49 @@ button:hover {
     justify-content: center;
 }
 
+#calculatedate {
+    margin: 20px;
+    height: 100px;
+    width: 400px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: #5289c3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    align-self: center;
+}
+
+#calcularfecha {
+    align-self: center;
+}
+
+#fechaIngreso{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#cantidadDiasPermanencia{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 /*Modal*/
 #openModal {
     width: 80px;
     padding: 10px 20px;
-    background-color: #3498db;
-    color: #fff;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
     margin: 20px;
-  }
+    align-self: auto;
+}
   
-  .modal {
+.modal {
     display: none;
     position: fixed;
     top: 0;
@@ -135,7 +168,7 @@ button:hover {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
-  }
+}
   
   .modal-content {
     position: absolute;
@@ -163,3 +196,17 @@ button:hover {
     border-radius: 5px;
     cursor: pointer;
   }
+
+  #volver{
+    align-self: auto;
+    background-color: #9e9e9e36;
+    transition: background-color 0.3s;
+  }
+  #volver:hover{
+    background-color: #e0e0e036;
+  }
+@media screen and (min-width: 600px) {
+    main {
+        max-width: 800px;
+    }
+}
