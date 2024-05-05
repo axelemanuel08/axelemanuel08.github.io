@@ -76,9 +76,10 @@ const isLaterThanToday = (date) => {
 }
 
 const isRightPlaced = (date, transit, errElement) => {
+  console.log("ejecute rigthplaced");
   errElement.textContent = "";
   if(transit.getEntry() != null) {
-    //Si entrada tiene algo significa que es salida comparemos
+    //Si entrada tiene algo significa que es salida, comparemos
     if (date < transit.getEntry()){
       errElement.textContent = "La fecha es anterior al ingreso";
     };
