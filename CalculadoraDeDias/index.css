@@ -70,7 +70,7 @@ p {
     font-size: 16px;
     margin: 5px;
     height: 18px;
-    color: rgb(252, 112, 112);
+    color: #000000;
 }
 
 input {
@@ -178,6 +178,7 @@ button:hover {
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
+    height: 400px;
   }
   
   #modal-title, #modal-text {
