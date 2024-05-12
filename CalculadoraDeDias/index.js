@@ -165,8 +165,7 @@ const addDate = () => {
   dateIn.setAttribute("type", "date");
   dateIn.setAttribute("id", `dateIn${data.getRecords()}`); // Asignando ID unico
   const errDateIn = document.createElement("p");
-  errDateIn.setAttribute("id",`dinamicErrorIn${data.getRecords()}`);
-  errDateIn.serAttribute("class", "dinamicError");
+  errDateIn.setAttribute("id",`dinamicErrorIn${data.getRecords()}`)
   //Elemento transito egreso
   const dateContainerOut = document.createElement("div");
   dateContainerOut.setAttribute("class", "date-container")
@@ -179,7 +178,6 @@ const addDate = () => {
   dateOut.setAttribute("id", `dateOut${data.getRecords()}`); // Asignando ID unico
   const errDateOut = document.createElement("p");
   errDateOut.setAttribute("id",`dinamicErrorOut${data.getRecords()}`);
-  errDateOut.serAttribute("class", "dinamicError");
 
   //Agregar ambos al DOM
 
