@@ -73,6 +73,10 @@ p {
     color: #ffffff;
 }
 
+.dinamicError{
+    color: #ffffff;
+}
+
 input {
     width: 50%;
     height: 30px;
