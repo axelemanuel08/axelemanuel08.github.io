@@ -152,8 +152,6 @@ const addDate = () => {
   const transitContainer = document.createElement("article");
   transitContainer.setAttribute("id", `transit${data.getRecords()}`);
   counterDays.appendChild(transitContainer);
-  //contenedor de cada transito
-  transitContainer.setAttribute("id", `transit${data.getRecords()}`)
   //Elemento transito ingreso
   const dateContainerIn = document.createElement("div");
   dateContainerIn.setAttribute("class", "date-container")
