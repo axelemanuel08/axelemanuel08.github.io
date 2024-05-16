@@ -189,6 +189,7 @@ button:hover {
   
   #modal-title, #modal-text {
     margin-bottom: 10px;
+    color: #000000;
   }
   
   #modal-title {
