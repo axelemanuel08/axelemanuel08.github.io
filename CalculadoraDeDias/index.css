@@ -14,7 +14,7 @@ main {
     display: flex;
     flex-direction: column;
     width: 80%;
-    max-width: 600px;
+    max-width: 400px;
     background-color: #373769;
     border-radius: 20px;
     box-shadow: 10px 10px 5px #000000
