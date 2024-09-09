@@ -163,7 +163,7 @@
 <body>
   <button id="open-modal">?</button>
   <div class="container">
-    <input type="button" value="Partidas de Nacimiento Buenos Aires" onclick="window.location.href='';">
+    <input type="button" value="Partidas de Nacimiento Buenos Aires" onclick="window.location.href='https://www.gdeba.gba.gob.ar/consultagedo/';">
     <br> <!-- Añadido para separar los botones verticalmente -->
     <input type="button" value="Partidas de Nacimiento Cordoba" onclick="window.location.href='';">
     <br> <!-- Añadido para separar los botones verticalmente -->
