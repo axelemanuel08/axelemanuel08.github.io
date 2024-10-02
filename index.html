@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a la Versión 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 1s ease-out;
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .animate-spin {
+            animation: spin 1s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-teal-100 to-blue-200 min-h-screen flex items-center justify-center p-4">
+    <div id="content" class="text-center p-8 bg-white rounded-lg shadow-md opacity-0">
+        <h1 class="text-3xl font-semibold mb-4 text-teal-700">
+            Bienvenido a la Versión 2
+        </h1>
+        <p class="text-lg text-gray-600 mb-6">
+            Hemos renovado nuestra app para ofrecerte una mejor experiencia.
+        </p>
+        <button id="redirectButton" class="px-6 py-3 bg-teal-500 text-white font-medium rounded-full shadow-md hover:bg-teal-600 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-50">
+            Explorar la nueva versión
+        </button>
+        <div class="mt-8 relative">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-16 h-16 border-t-4 border-b-4 border-teal-500 rounded-full animate-spin"></div>
+            </div>
+            <p class="text-teal-600 relative z-10 bg-white inline-block px-2">
+                Cargando nuevas funciones...
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const content = document.getElementById('content');
+            const redirectButton = document.getElementById('redirectButton');
+
+            // Animate content on load
+            setTimeout(() => {
+                content.classList.add('animate-fadeInUp');
+                content.style.opacity = '1';
+            }, 100);
+
+            // Handle button click
+            redirectButton.addEventListener('click', function() {
+                // Replace 'https://your-new-url.com' with the actual URL you want to redirect to
+                window.location.href = 'https://herramientas-migraciones.netlify.app/';
+            });
+        });
+    </script>
+</body>
+</html>
